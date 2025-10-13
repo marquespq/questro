@@ -8,9 +8,8 @@
 [![npm downloads](https://img.shields.io/npm/dm/questro.svg)](https://www.npmjs.com/package/questro)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/questro)](https://bundlephobia.com/package/questro)
 
-**[📖 Interactive Docs](https://marquespq.github.io/example-questro/)** • **[🌟 Showcase](https://marquespq.github.io/example-questro/#showcase)** • **[💬 GitHub](https://github.com/marquespq/questro)**
+**[📖 Documentation](https://marquespq.github.io/example-questro/)** • **[🌟 Examples](https://marquespq.github.io/example-questro/#showcase)** • **[💬 GitHub](https://github.com/marquespq/questro)**
 
 </div>
 
@@ -18,14 +17,14 @@
 
 ## 🚀 Why Questro?
 
-**Questro** makes it dead simple to add gamification to any React app. Whether you're building a fitness tracker, learning platform, or e-commerce loyalty program - Questro provides the building blocks you need.
+**Questro** provides a complete set of building blocks to add gamification to any React application. Whether you're building a fitness tracker, learning platform, or e-commerce loyalty program - Questro offers the tools you need.
 
-- **🪶 Lightweight** - Only 135 kB (68% smaller than v0.1.0)
-- **🎯 Modular** - Import only what you need
-- **⚡ Zero Dependencies** - Except React
-- **📘 TypeScript First** - Full type safety
-- **🎨 Unstyled** - Bring your own design
+- **🎯 Modular Architecture** - Import only what you need
+- **⚡ Zero Dependencies** - Pure React, no external dependencies
+- **📘 TypeScript First** - Full type safety out of the box
+- **🎨 Unstyled Components** - Complete design freedom
 - **🔌 Flexible Storage** - LocalStorage, SessionStorage, Memory, or custom backends
+- **⚛️ React-Focused** - Built specifically for React applications
 
 ## Installation
 
@@ -104,53 +103,45 @@ import { LeaderboardProvider, useLeaderboard } from 'questro/leaderboard';
 const { entries, updateScore, getUserRank } = useLeaderboard();
 ```
 
-## 🌟 Showcase
+## 🌟 Use Cases
 
-Real apps built with Questro:
-
-### 🗣️ Language Learning (Duolingo-style)
+### 🗣️ Language Learning
 
 - Daily streak tracking with XP rewards
 - Achievement badges for milestones
 - Friend leaderboards by language
-- **Complexity:** Intermediate
 
-### 💪 Fitness Tracker
+### 💪 Fitness & Wellness
 
 - Workout quest system
-- Consistency streak badges
+- Consistency streak tracking
 - Weekly challenge leaderboards
-- **Complexity:** Beginner
 
-### ✅ Productivity Dashboard
+### ✅ Productivity Tools
 
 - Points for completed tasks
 - Daily/weekly goal quests
-- Team leaderboards
-- **Complexity:** Beginner
+- Team performance leaderboards
 
-### 🛒 E-commerce Loyalty Program
+### 🛒 E-commerce & Loyalty
 
 - Purchase points system
 - VIP tier badges
-- Referral quests
-- **Complexity:** Advanced
+- Referral quests and rewards
 
-### 🎓 Learning Platform
+### 🎓 Education & Learning
 
 - Course completion badges
 - Study streak tracking
 - Skill mastery quests
-- **Complexity:** Intermediate
 
-### 📱 Social Media Gamification
+### 📱 Social & Community
 
 - Engagement points system
-- Influencer badges
-- Viral content quests
-- **Complexity:** Advanced
+- Community badges
+- Viral content challenges
 
-**[→ View Full Showcase](https://marquespq.github.io/example-questro/#showcase)**
+**[→ View Interactive Examples](https://marquespq.github.io/example-questro/#showcase)**
 
 ## 💾 Storage Adapters
 
@@ -184,25 +175,27 @@ class APIStorage<T> implements StorageAdapter<T> {
 }
 ```
 
-## 🔌 Framework Support
+## 🔌 Framework Compatibility
 
-| Framework    | Support       | Notes                          |
-| ------------ | ------------- | ------------------------------ |
-| React        | ✅ Full       | Complete support               |
-| Next.js      | ✅ SSR Ready  | Use MemoryStorage on server    |
-| React Native | ✅ Compatible | AsyncStorage adapter available |
-| TypeScript   | ✅ Built-in   | Full type definitions included |
-| Remix        | ✅ Compatible | Works out of the box           |
-| Gatsby       | ✅ Compatible | Works out of the box           |
+| Framework    | Support       | Notes                             |
+| ------------ | ------------- | --------------------------------- |
+| React        | ✅ Full       | Complete support                  |
+| Next.js      | ✅ SSR Ready  | Use MemoryStorage for server-side |
+| React Native | ✅ Compatible | AsyncStorage adapter recommended  |
+| TypeScript   | ✅ Built-in   | Full type definitions included    |
+| Remix        | ✅ Compatible | Works with all storage adapters   |
+| Gatsby       | ✅ Compatible | Static site generation supported  |
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to:
+We welcome contributions from the community! Here's how you can help:
 
-- 🐛 [Report bugs](https://github.com/marquespq/questro/issues)
-- 💡 [Suggest features](https://github.com/marquespq/questro/issues/new)
-- 📖 [Improve documentation](https://github.com/marquespq/questro)
-- 🔧 [Submit pull requests](https://github.com/marquespq/questro/pulls)
+- 🐛 [Report bugs](https://github.com/marquespq/questro/issues) - Help us identify and fix issues
+- 💡 [Request features](https://github.com/marquespq/questro/issues/new) - Suggest new functionality
+- 📖 [Improve docs](https://github.com/marquespq/questro) - Help make our documentation better
+- 🔧 [Submit PRs](https://github.com/marquespq/questro/pulls) - Contribute code improvements
+
+Please read our contributing guidelines before submitting pull requests.
 
 ## 📄 License
 
