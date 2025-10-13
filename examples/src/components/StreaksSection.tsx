@@ -17,6 +17,49 @@ export function StreaksSection() {
     }
   };
 
+  // DEMO: Simulate recording activity for past days
+  const handleSimulatePastDays = (daysAgo: number) => {
+    // Get current state from localStorage
+    const storageKey = 'questro_streaks_demo-user_daily';
+    const savedState = localStorage.getItem(storageKey);
+    
+    if (savedState) {
+      const state = JSON.parse(savedState);
+      
+      // Add entries for past days
+      const today = new Date();
+      for (let i = daysAgo; i >= 1; i--) {
+        const pastDate = new Date(today);
+        pastDate.setDate(today.getDate() - i);
+        const dateStr = pastDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        
+        // Check if entry already exists
+        const exists = state.history?.some((entry: { date: string }) => entry.date === dateStr);
+        if (!exists) {
+          state.history = state.history || [];
+          state.history.push({
+            date: dateStr,
+            completed: true,
+            timestamp: pastDate.getTime(),
+            freezeUsed: false,
+          });
+        }
+      }
+      
+      // Update streak count
+      state.current = (state.current || 0) + daysAgo;
+      state.longest = Math.max(state.longest || 0, state.current);
+      state.lastActivity = Date.now();
+      state.lastUpdated = Date.now();
+      
+      // Save back to localStorage
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      
+      // Force reload to update UI
+      window.location.reload();
+    }
+  };
+
   const now = new Date();
   const currentMonth = now.getMonth();
   const currentYear = now.getFullYear();
@@ -105,8 +148,8 @@ export function StreaksSection() {
               Quick Actions
             </div>
             <div className="demo-actions">
-              <button 
-                onClick={handleRecordActivity} 
+              <button
+                onClick={handleRecordActivity}
                 className="action-button"
                 disabled={streakData.isActive}
                 title={streakData.isActive ? 'Already recorded today!' : 'Record activity'}
@@ -144,6 +187,60 @@ export function StreaksSection() {
                 streak.
               </div>
             )}
+          </div>
+
+          {/* Demo: Simulate Past Days */}
+          <div style={{ marginBottom: '24px' }}>
+            <div
+              style={{
+                fontSize: '14px',
+                fontWeight: 600,
+                color: '#64748b',
+                marginBottom: '12px',
+              }}
+            >
+              🎮 Demo: Simulate Past Activity
+            </div>
+            <div
+              style={{
+                marginBottom: '12px',
+                padding: '12px',
+                backgroundColor: '#f1f5f9',
+                border: '1px solid #cbd5e1',
+                borderRadius: '8px',
+                fontSize: '12px',
+                color: '#475569',
+              }}
+            >
+              💡 In real apps, you can only record once per day. These buttons simulate completing
+              activities on past days for demo purposes.
+            </div>
+            <div className="demo-actions">
+              <button
+                onClick={() => handleSimulatePastDays(3)}
+                className="action-button-secondary"
+              >
+                📅 +3 Days Ago
+              </button>
+              <button
+                onClick={() => handleSimulatePastDays(7)}
+                className="action-button-secondary"
+              >
+                📅 +7 Days Ago
+              </button>
+              <button
+                onClick={() => handleSimulatePastDays(14)}
+                className="action-button-secondary"
+              >
+                📅 +14 Days Ago
+              </button>
+              <button
+                onClick={() => handleSimulatePastDays(30)}
+                className="action-button-secondary"
+              >
+                📅 +30 Days Ago
+              </button>
+            </div>
           </div>
 
           {/* Calendar */}
