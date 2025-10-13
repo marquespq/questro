@@ -1,9 +1,10 @@
 {
   "name": "questro",
   "version": "0.3.1",
-  "description": "A lightweight (<200KB), modular gamification library for React. Add points, badges, quests, leaderboards, levels/XP, streaks, and notifications to your apps with zero dependencies. Perfect for fitness trackers, learning platforms, and e-commerce loyalty programs.",
+  "description": "A lightweight (<200KB), modular gamification library for React and React Native. Add points, badges, quests, leaderboards, levels/XP, streaks, and notifications to your apps with zero dependencies. Perfect for fitness trackers, learning platforms, and e-commerce loyalty programs.",
   "keywords": [
     "react",
+    "react-native",
     "gamification",
     "badges",
     "points",
@@ -118,8 +119,12 @@
     "prepublishOnly": "npm run type-check && npm run lint && npm run build"
   },
   "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/node": "^24.7.2",

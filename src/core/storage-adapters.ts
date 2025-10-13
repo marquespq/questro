@@ -107,3 +107,82 @@ export class MemoryStorageAdapter<T> implements StorageAdapter<T> {
     this.storage.clear();
   }
 }
+
+/**
+ * AsyncStorageAdapter for React Native
+ * 
+ * @example
+ * ```tsx
+ * import AsyncStorage from '@react-native-async-storage/async-storage';
+ * import { AsyncStorageAdapter } from 'questro';
+ * import { PointsProvider } from 'questro/points';
+ * 
+ * const storage = new AsyncStorageAdapter(AsyncStorage, 'my-app');
+ * 
+ * function App() {
+ *   return (
+ *     <PointsProvider userId="user-123" storage={storage}>
+ *       <YourApp />
+ *     </PointsProvider>
+ *   );
+ * }
+ * ```
+ */
+export class AsyncStorageAdapter<T> implements StorageAdapter<T> {
+  constructor(
+    private readonly asyncStorage: {
+      getItem: (key: string) => Promise<string | null>;
+      setItem: (key: string, value: string) => Promise<void>;
+      removeItem: (key: string) => Promise<void>;
+      getAllKeys?: () => Promise<readonly string[]>;
+      multiRemove?: (keys: readonly string[]) => Promise<void>;
+    },
+    private readonly prefix: string = 'questro'
+  ) {}
+
+  private getKey(key: string): string {
+    return `${this.prefix}:${key}`;
+  }
+
+  async get(key: string): Promise<T | null> {
+    try {
+      const item = await this.asyncStorage.getItem(this.getKey(key));
+      return item ? (JSON.parse(item) as T) : null;
+    } catch (error) {
+      console.error(`Error reading from AsyncStorage: ${String(error)}`);
+      return null;
+    }
+  }
+
+  async set(key: string, value: T): Promise<void> {
+    try {
+      await this.asyncStorage.setItem(this.getKey(key), JSON.stringify(value));
+    } catch (error) {
+      console.error(`Error writing to AsyncStorage: ${String(error)}`);
+    }
+  }
+
+  async remove(key: string): Promise<void> {
+    try {
+      await this.asyncStorage.removeItem(this.getKey(key));
+    } catch (error) {
+      console.error(`Error removing from AsyncStorage: ${String(error)}`);
+    }
+  }
+
+  async clear(): Promise<void> {
+    try {
+      if (this.asyncStorage.getAllKeys && this.asyncStorage.multiRemove) {
+        const keys = await this.asyncStorage.getAllKeys();
+        const prefixedKeys = keys.filter((key) => key.startsWith(`${this.prefix}:`));
+        if (prefixedKeys.length > 0) {
+          await this.asyncStorage.multiRemove(prefixedKeys);
+        }
+      } else {
+        console.warn('AsyncStorage.getAllKeys or multiRemove not available');
+      }
+    } catch (error) {
+      console.error(`Error clearing AsyncStorage: ${String(error)}`);
+    }
+  }
+}

@@ -15,6 +15,7 @@ export {
   LocalStorageAdapter,
   SessionStorageAdapter,
   MemoryStorageAdapter,
+  AsyncStorageAdapter,
 } from './storage-adapters';
 // Utilities
 export { now, generateId, deepClone, isBrowser, debounce, clamp, percentage } from './utils';

@@ -2,7 +2,7 @@
 
 # 🎮 Questro
 
-**A lightweight, modular gamification library for React**
+**A lightweight, modular gamification library for React and React Native**
 
 [![npm](https://img.shields.io/npm/v/questro.svg)](https://www.npmjs.com/package/questro)
 [![npm downloads](https://img.shields.io/npm/dm/questro.svg)](https://www.npmjs.com/package/questro)
@@ -17,16 +17,19 @@
 
 ## 🚀 Why Questro?
 
-**Questro** provides a complete set of building blocks to add gamification to any React application. Whether you're building a fitness tracker, learning platform, or e-commerce loyalty program - Questro offers the tools you need.
+**Questro** provides a complete set of building blocks to add gamification to any React or React Native application. Whether you're building a fitness tracker, learning platform, or e-commerce loyalty program - Questro offers the tools you need.
 
 - **🎯 Modular Architecture** - Import only what you need
 - **⚡ Zero Dependencies** - Pure React, no external dependencies
 - **📘 TypeScript First** - Full type safety out of the box
+- **📱 React Native Support** - Works seamlessly on mobile with AsyncStorage
 - **🎨 Unstyled Components** - Complete design freedom
-- **🔌 Flexible Storage** - LocalStorage, SessionStorage, Memory, or custom backends
+- **🔌 Flexible Storage** - LocalStorage, SessionStorage, AsyncStorage, Memory, or custom backends
 - **⚛️ React-Focused** - Built specifically for React applications
 
 ## Installation
+
+### React (Web)
 
 ```bash
 npm install questro
@@ -36,7 +39,17 @@ yarn add questro
 pnpm add questro
 ```
 
+### React Native
+
+```bash
+npm install questro @react-native-async-storage/async-storage
+# or
+yarn add questro @react-native-async-storage/async-storage
+```
+
 ## ⚡ Quick Start
+
+### React (Web)
 
 ```tsx
 import { PointsProvider, usePoints } from 'questro/points';
@@ -60,6 +73,40 @@ function Game() {
   );
 }
 ```
+
+### React Native 📱
+
+```tsx
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { PointsProvider, usePoints, AsyncStorageAdapter } from 'questro/points';
+import { View, Text, TouchableOpacity } from 'react-native';
+
+// Create storage adapter for React Native
+const storage = new AsyncStorageAdapter(AsyncStorage, 'my-game');
+
+function App() {
+  return (
+    <PointsProvider config={{ userId: 'user-123' }} storage={storage}>
+      <Game />
+    </PointsProvider>
+  );
+}
+
+function Game() {
+  const { balance, addPoints } = usePoints();
+
+  return (
+    <View>
+      <Text>Points: {balance}</Text>
+      <TouchableOpacity onPress={() => addPoints(10)}>
+        <Text>Complete Task (+10)</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+```
+
+> **Note**: All Providers (`PointsProvider`, `BadgesProvider`, `QuestsProvider`, etc.) accept an optional `storage` prop. If not provided, web apps default to `LocalStorageAdapter`.
 
 ## 🎯 Core Modules
 
