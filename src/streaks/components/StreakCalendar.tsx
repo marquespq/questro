@@ -28,21 +28,17 @@ export type StreakCalendarProps = {
   /**
    * Custom render function for entire calendar
    */
-  children?: (data: {
-    days: CalendarDay[];
-    month: number;
-    year: number;
-  }) => React.ReactNode;
+  children?: (data: { days: CalendarDay[]; month: number; year: number }) => React.ReactNode;
 };
 
 /**
  * Calendar showing streak activity history
- * 
+ *
  * @example
  * ```tsx
  * <StreakCalendar month={9} year={2024} />
  * ```
- * 
+ *
  * @example Custom day rendering
  * ```tsx
  * <StreakCalendar

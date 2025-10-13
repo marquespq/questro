@@ -3,7 +3,7 @@ import { useNotifications } from '../NotificationsProvider';
 import { Toast } from './Toast';
 import type { Notification } from '../types';
 
-export type ToastPosition = 
+export type ToastPosition =
   | 'top-left'
   | 'top-center'
   | 'top-right'
@@ -32,10 +32,7 @@ export type NotificationContainerProps = {
   /**
    * Custom render function for each toast
    */
-  renderToast?: (
-    notification: Notification,
-    onDismiss: () => void
-  ) => React.ReactNode;
+  renderToast?: (notification: Notification, onDismiss: () => void) => React.ReactNode;
 
   /**
    * Custom render function for container
@@ -49,18 +46,18 @@ export type NotificationContainerProps = {
 
 /**
  * Container for displaying toast notifications
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
  * <NotificationContainer />
- * 
+ *
  * // Custom position
  * <NotificationContainer position="bottom-center" />
- * 
+ *
  * // Limit visible toasts
  * <NotificationContainer maxVisible={5} />
- * 
+ *
  * // Custom render
  * <NotificationContainer
  *   renderToast={(notif, dismiss) => (
@@ -89,7 +86,12 @@ export function NotificationContainer({
     'top-center': { top: 20, left: '50%', transform: 'translateX(-50%)', alignItems: 'center' },
     'top-right': { top: 20, right: 20, alignItems: 'flex-end' },
     'bottom-left': { bottom: 20, left: 20, alignItems: 'flex-start' },
-    'bottom-center': { bottom: 20, left: '50%', transform: 'translateX(-50%)', alignItems: 'center' },
+    'bottom-center': {
+      bottom: 20,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      alignItems: 'center',
+    },
     'bottom-right': { bottom: 20, right: 20, alignItems: 'flex-end' },
   };
 
@@ -113,10 +115,7 @@ export function NotificationContainer({
           {renderToast ? (
             renderToast(notification, () => dismiss(notification.id))
           ) : (
-            <Toast
-              notification={notification}
-              onDismiss={() => dismiss(notification.id)}
-            />
+            <Toast notification={notification} onDismiss={() => dismiss(notification.id)} />
           )}
         </div>
       ))}

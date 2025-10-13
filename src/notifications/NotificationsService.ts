@@ -38,7 +38,7 @@ export class NotificationsService {
    */
   show(input: NotificationInput): string {
     const id = `notif-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    
+
     const notification: Notification = {
       ...input,
       id,
@@ -61,7 +61,7 @@ export class NotificationsService {
       const timeout = setTimeout(() => {
         this.dismiss(id);
       }, notification.duration);
-      
+
       this.timeouts.set(id, timeout);
     }
 
@@ -78,7 +78,7 @@ export class NotificationsService {
    * Dismiss a notification
    */
   dismiss(id: string): void {
-    this.state.notifications = this.state.notifications.filter(n => n.id !== id);
+    this.state.notifications = this.state.notifications.filter((n) => n.id !== id);
     this.state.lastUpdated = Date.now();
 
     // Clear timeout
@@ -99,7 +99,7 @@ export class NotificationsService {
     this.state.lastUpdated = Date.now();
 
     // Clear all timeouts
-    this.timeouts.forEach(timeout => clearTimeout(timeout));
+    this.timeouts.forEach((timeout) => clearTimeout(timeout));
     this.timeouts.clear();
 
     this.notifyListeners();
@@ -109,7 +109,7 @@ export class NotificationsService {
    * Mark notification as read
    */
   markAsRead(id: string): void {
-    const notification = this.state.notifications.find(n => n.id === id);
+    const notification = this.state.notifications.find((n) => n.id === id);
     if (notification) {
       notification.read = true;
       this.state.lastUpdated = Date.now();
@@ -135,7 +135,7 @@ export class NotificationsService {
    * Get unread count
    */
   getUnreadCount(): number {
-    return this.state.notifications.filter(n => !n.read).length;
+    return this.state.notifications.filter((n) => !n.read).length;
   }
 
   /**
@@ -157,7 +157,7 @@ export class NotificationsService {
    * Cleanup (clear all timeouts)
    */
   destroy(): void {
-    this.timeouts.forEach(timeout => clearTimeout(timeout));
+    this.timeouts.forEach((timeout) => clearTimeout(timeout));
     this.timeouts.clear();
     this.listeners.clear();
   }
@@ -181,7 +181,7 @@ export class NotificationsService {
   }
 
   // Convenience methods for common notification types
-  
+
   success(title: string, message?: string, icon: string = '✅'): string {
     return this.show({ type: 'success', title, message, icon });
   }

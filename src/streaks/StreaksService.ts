@@ -15,7 +15,9 @@ import {
 
 export class StreaksService {
   private state: StreaksState;
-  private config: Required<Omit<StreakConfig, 'milestones' | 'onStreakUpdate' | 'onMilestoneReached' | 'onStreakBroken'>> & {
+  private config: Required<
+    Omit<StreakConfig, 'milestones' | 'onStreakUpdate' | 'onMilestoneReached' | 'onStreakBroken'>
+  > & {
     milestones?: StreakMilestone[];
     onStreakUpdate?: StreakConfig['onStreakUpdate'];
     onMilestoneReached?: StreakConfig['onMilestoneReached'];
@@ -36,7 +38,7 @@ export class StreaksService {
     };
 
     this.state = initialState || this.createInitialState();
-    
+
     // Check if streak is broken on initialization
     this.checkStreakStatus();
   }
@@ -185,7 +187,7 @@ export class StreaksService {
   reset(): void {
     const previousStreak = this.state.current;
     this.state = this.createInitialState();
-    
+
     if (previousStreak > 0 && this.config.onStreakBroken) {
       this.config.onStreakBroken(previousStreak);
     }
@@ -203,7 +205,10 @@ export class StreaksService {
   /**
    * Get calendar data for a specific month
    */
-  getCalendarData(month: number, year: number): Array<{
+  getCalendarData(
+    month: number,
+    year: number
+  ): Array<{
     date: string;
     completed: boolean;
     isToday: boolean;
@@ -217,7 +222,7 @@ export class StreaksService {
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
       const dateStr = formatDate(date);
-      const entry = this.state.history.find(h => h.date === dateStr);
+      const entry = this.state.history.find((h) => h.date === dateStr);
 
       const isToday =
         date.getDate() === today.getDate() &&

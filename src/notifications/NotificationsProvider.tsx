@@ -1,9 +1,5 @@
 import React, { createContext, useEffect, useState, useCallback, useMemo } from 'react';
-import type {
-  Notification,
-  NotificationConfig,
-  NotificationInput,
-} from './types';
+import type { Notification, NotificationConfig, NotificationInput } from './types';
 import { NotificationsService } from './NotificationsService';
 
 type NotificationsContextValue = {
@@ -184,11 +180,7 @@ export function NotificationsProvider({ children, config }: NotificationsProvide
     ]
   );
 
-  return (
-    <NotificationsContext.Provider value={value}>
-      {children}
-    </NotificationsContext.Provider>
-  );
+  return <NotificationsContext.Provider value={value}>{children}</NotificationsContext.Provider>;
 }
 
 export function useNotifications(): NotificationsContextValue {

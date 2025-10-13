@@ -374,7 +374,7 @@ io.on('connection', (socket) => {
   };
 
   return (
-    <div className="module-section">
+    <div className="integration-section">
       <div className="module-demo">
         <div className="demo-card">
           <div className="demo-header">
@@ -383,15 +383,7 @@ io.on('connection', (socket) => {
           </div>
 
           {/* Explicação */}
-          <div
-            style={{
-              marginBottom: "24px",
-              padding: "16px",
-              backgroundColor: "#f0fdf4",
-              border: "1px solid #bbf7d0",
-              borderRadius: "10px",
-            }}
-          >
+          <div className="integration-info-box">
             <div
               style={{
                 display: "flex",
@@ -421,32 +413,14 @@ io.on('connection', (socket) => {
           </div>
 
           {/* Integration Grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: "12px",
-              marginBottom: "24px",
-            }}
-          >
+          <div className="integration-grid">
             {integrations.map((integration) => (
               <button
                 key={integration.id}
                 onClick={() => setSelectedIntegration(integration.id)}
-                style={{
-                  padding: "16px",
-                  backgroundColor:
-                    selectedIntegration === integration.id ? "#f8fafc" : "#fff",
-                  border: `2px solid ${
-                    selectedIntegration === integration.id
-                      ? "#0f172a"
-                      : "#e2e8f0"
-                  }`,
-                  borderRadius: "12px",
-                  textAlign: "left",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                }}
+                className={`integration-card ${
+                  selectedIntegration === integration.id ? "active" : ""
+                }`}
               >
                 <div
                   style={{
@@ -493,14 +467,7 @@ io.on('connection', (socket) => {
           </div>
 
           {/* Selected Integration Details */}
-          <div
-            style={{
-              padding: "20px",
-              backgroundColor: "#f8fafc",
-              borderRadius: "12px",
-              border: "1px solid #e2e8f0",
-            }}
-          >
+          <div className="integration-details">
             <div
               style={{
                 display: "flex",
@@ -571,10 +538,7 @@ io.on('connection', (socket) => {
 
         <div className="code-block">
           <div className="code-label">{selected.name}</div>
-          <pre
-            className="code-snippet"
-            style={{ maxHeight: "500px", overflowY: "auto" }}
-          >
+          <pre className="code-snippet">
             {codeExamples[selectedIntegration]}
           </pre>
         </div>

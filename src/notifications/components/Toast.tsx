@@ -20,15 +20,12 @@ export type ToastProps = {
   /**
    * Custom render function
    */
-  children?: (data: {
-    notification: NotificationType;
-    onDismiss: () => void;
-  }) => React.ReactNode;
+  children?: (data: { notification: NotificationType; onDismiss: () => void }) => React.ReactNode;
 };
 
 /**
  * Single toast notification
- * 
+ *
  * @example
  * ```tsx
  * <Toast notification={notif} onDismiss={() => dismiss(notif.id)} />
@@ -78,7 +75,7 @@ export function Toast({ notification, onDismiss, className, children }: ToastPro
         <div data-toast-title style={{ fontWeight: 'bold', marginBottom: '4px' }}>
           {notification.title}
         </div>
-        
+
         {notification.message && (
           <div data-toast-message style={{ fontSize: '14px', opacity: 0.9 }}>
             {notification.message}

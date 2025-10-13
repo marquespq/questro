@@ -32,12 +32,12 @@ export type LevelDisplayProps = {
 
 /**
  * Display current level and XP
- * 
+ *
  * @example
  * ```tsx
  * <LevelDisplay showXP showPercentage />
  * ```
- * 
+ *
  * @example Custom render
  * ```tsx
  * <LevelDisplay>
@@ -70,21 +70,15 @@ export function LevelDisplay({
 
   return (
     <div className={className} data-component="level-display">
-      <div data-level={levelData.level}>
-        Level {levelData.level}
-      </div>
-      
+      <div data-level={levelData.level}>Level {levelData.level}</div>
+
       {showXP && (
         <div data-xp={`${levelData.currentXP}/${levelData.xpToLevelUp}`}>
           {levelData.currentXP} / {levelData.xpToLevelUp} XP
         </div>
       )}
-      
-      {showPercentage && (
-        <div data-progress={levelData.progress}>
-          {levelData.progress}%
-        </div>
-      )}
+
+      {showPercentage && <div data-progress={levelData.progress}>{levelData.progress}%</div>}
     </div>
   );
 }

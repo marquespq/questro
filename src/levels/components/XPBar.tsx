@@ -49,15 +49,15 @@ export type XPBarProps = {
 
 /**
  * XP progress bar
- * 
+ *
  * @example
  * ```tsx
  * <XPBar height="12px" showPercentage showXP />
  * ```
- * 
+ *
  * @example Custom styling
  * ```tsx
- * <XPBar 
+ * <XPBar
  *   className="bg-gray-200 rounded-full overflow-hidden"
  *   fillClassName="bg-blue-500 h-full transition-all duration-500"
  * />
@@ -96,11 +96,7 @@ export function XPBar({
               {levelData.currentXP} / {levelData.xpToLevelUp} XP
             </span>
           )}
-          {showPercentage && (
-            <span data-xp-percentage>
-              {levelData.progress}%
-            </span>
-          )}
+          {showPercentage && <span data-xp-percentage>{levelData.progress}%</span>}
         </div>
       )}
 

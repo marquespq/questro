@@ -39,12 +39,12 @@ export type StreakDisplayProps = {
 
 /**
  * Display current streak with fire emoji
- * 
+ *
  * @example
  * ```tsx
  * <StreakDisplay showFreezes showLongest />
  * ```
- * 
+ *
  * @example Custom render
  * ```tsx
  * <StreakDisplay>
@@ -86,9 +86,7 @@ export function StreakDisplay({
       </div>
 
       {showLongest && streakData.longest > 0 && (
-        <div data-streak-longest>
-          Longest: {streakData.longest}
-        </div>
+        <div data-streak-longest>Longest: {streakData.longest}</div>
       )}
 
       {showFreezes && streakData.freezes > 0 && (
@@ -99,7 +97,9 @@ export function StreakDisplay({
 
       {showWarning && !streakData.isActive && streakData.current > 0 && (
         <div data-streak-warning>
-          ⚠️ Complete {streakData.type === 'daily' ? 'today' : 'this ' + streakData.type.replace('ly', '')} to keep streak!
+          ⚠️ Complete{' '}
+          {streakData.type === 'daily' ? 'today' : 'this ' + streakData.type.replace('ly', '')} to
+          keep streak!
         </div>
       )}
     </div>

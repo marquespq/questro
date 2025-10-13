@@ -2,11 +2,11 @@
  * Notification type/severity
  */
 export type NotificationType =
-  | 'success'      // Green - Achievement unlocked, quest completed
-  | 'info'         // Blue - General information
-  | 'warning'      // Yellow - Streak at risk
-  | 'error'        // Red - Error occurred
-  | 'levelup'      // Gold/Orange - Level up
+  | 'success' // Green - Achievement unlocked, quest completed
+  | 'info' // Blue - General information
+  | 'warning' // Yellow - Streak at risk
+  | 'error' // Red - Error occurred
+  | 'levelup' // Gold/Orange - Level up
   | 'achievement'; // Purple - Special achievement
 
 /**

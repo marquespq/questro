@@ -1,11 +1,5 @@
 import React, { createContext, useEffect, useState, useCallback, useMemo } from 'react';
-import type {
-  StreakConfig,
-  StreakData,
-  StreaksState,
-  StreakEntry,
-  CalendarDay,
-} from './types';
+import type { StreakConfig, StreakData, StreaksState, StreakEntry, CalendarDay } from './types';
 import { StreaksService } from './StreaksService';
 import type { StorageAdapter } from '../core/types';
 import { LocalStorageAdapter } from '../core/storage-adapters';
@@ -50,7 +44,7 @@ export function StreaksProvider({ children, config, storage }: StreaksProviderPr
 
     const initService = async () => {
       const savedState = await storageAdapter.get(storageKey);
-      
+
       if (!mounted) return;
 
       const newService = new StreaksService(config, savedState || undefined);
@@ -102,21 +96,18 @@ export function StreaksProvider({ children, config, storage }: StreaksProviderPr
     [service]
   );
 
-  const value = useMemo<StreaksContextValue | null>(
-    () => {
-      if (!service || !streakData) return null;
+  const value = useMemo<StreaksContextValue | null>(() => {
+    if (!service || !streakData) return null;
 
-      return {
-        streakData,
-        history,
-        recordActivity,
-        useFreeze,
-        reset,
-        getCalendarData,
-      };
-    },
-    [service, streakData, history, recordActivity, useFreeze, reset, getCalendarData]
-  );
+    return {
+      streakData,
+      history,
+      recordActivity,
+      useFreeze,
+      reset,
+      getCalendarData,
+    };
+  }, [service, streakData, history, recordActivity, useFreeze, reset, getCalendarData]);
 
   // Don't render until service is initialized
   if (!value) {
@@ -128,10 +119,10 @@ export function StreaksProvider({ children, config, storage }: StreaksProviderPr
 
 export function useStreaks(): StreaksContextValue {
   const context = React.useContext(StreaksContext);
-  
+
   if (!context) {
     throw new Error('useStreaks must be used within a StreaksProvider');
   }
-  
+
   return context;
 }
