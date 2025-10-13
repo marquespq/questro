@@ -15,6 +15,7 @@ export interface QuestsProviderProps {
 }
 
 export function QuestsProvider({ children, quests = [], config = {} }: QuestsProviderProps) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const service = useMemo(() => new QuestsServiceImpl(quests, config), []);
 
   const value = useMemo(() => ({ service }), [service]);

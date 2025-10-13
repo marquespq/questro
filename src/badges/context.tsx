@@ -18,11 +18,9 @@ export function BadgesProvider({
   storageKey = `badges:${config.userId}`,
 }: BadgesProviderProps) {
   const [isLoading, setIsLoading] = useState(true);
-  // We intentionally only depend on userId and badges array to avoid
-  // recreating the service when other config properties change
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const service = useMemo(() => {
     return new BadgesServiceImpl(config);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.userId, config.badges]);
   // Load state from storage
   useEffect(() => {

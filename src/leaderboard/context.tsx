@@ -19,6 +19,7 @@ export function LeaderboardProvider({
   entries = [],
   config = {},
 }: LeaderboardProviderProps) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const service = useMemo(() => new LeaderboardServiceImpl(entries, config), []);
 
   const value = useMemo(() => ({ service }), [service]);

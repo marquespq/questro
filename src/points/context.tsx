@@ -21,9 +21,9 @@ export function PointsProvider({
   // Create service instance (memoized to prevent recreation)
   // We intentionally only depend on userId to avoid recreating the service
   // when other config properties change, as that would lose state
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const service = useMemo(() => {
     return new PointsServiceImpl(config);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.userId]);
   // Load state from storage on mount
   useEffect(() => {
