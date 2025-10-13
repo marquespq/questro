@@ -11,7 +11,7 @@ import { BadgesSection } from "./components/BadgesSection";
 import { QuestsSection } from "./components/QuestsSection";
 import { LeaderboardSection } from "./components/LeaderboardSection";
 import { userId, badges, quests, leaderboardEntries } from "./data/mockData";
-import { styles } from "./styles/appStyles";
+import "./styles/responsive.css";
 
 function ComponentsShowcase() {
   const [activeTab, setActiveTab] = useState<
@@ -19,60 +19,44 @@ function ComponentsShowcase() {
   >("points");
 
   return (
-    <div style={styles.container}>
+    <div className="app-container">
       <Hero />
       <Features />
 
-      <section style={styles.interactive}>
-        <h2 style={styles.interactiveTitle}>Interactive Components</h2>
-        <p style={styles.interactiveSubtitle}>
+      <section className="interactive">
+        <h2 className="interactive-title">Interactive Components</h2>
+        <p className="interactive-subtitle">
           Try all features live. No installation needed.
         </p>
 
-        <div style={styles.tabs}>
+        <div className="tabs">
           <button
-            style={
-              activeTab === "points"
-                ? { ...styles.tab, ...styles.tabActive }
-                : styles.tab
-            }
+            className={activeTab === "points" ? "tab tab-active" : "tab"}
             onClick={() => setActiveTab("points")}
           >
             📊 Points
           </button>
           <button
-            style={
-              activeTab === "badges"
-                ? { ...styles.tab, ...styles.tabActive }
-                : styles.tab
-            }
+            className={activeTab === "badges" ? "tab tab-active" : "tab"}
             onClick={() => setActiveTab("badges")}
           >
             🏆 Badges
           </button>
           <button
-            style={
-              activeTab === "quests"
-                ? { ...styles.tab, ...styles.tabActive }
-                : styles.tab
-            }
+            className={activeTab === "quests" ? "tab tab-active" : "tab"}
             onClick={() => setActiveTab("quests")}
           >
             🎯 Quests
           </button>
           <button
-            style={
-              activeTab === "leaderboard"
-                ? { ...styles.tab, ...styles.tabActive }
-                : styles.tab
-            }
+            className={activeTab === "leaderboard" ? "tab tab-active" : "tab"}
             onClick={() => setActiveTab("leaderboard")}
           >
             🏅 Leaderboard
           </button>
         </div>
 
-        <div style={styles.tabContent}>
+        <div className="tab-content">
           {activeTab === "points" && <PointsSection />}
           {activeTab === "badges" && <BadgesSection />}
           {activeTab === "quests" && <QuestsSection />}
