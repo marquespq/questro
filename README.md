@@ -4,13 +4,13 @@
 
 **A lightweight, modular gamification library for React**
 
-[![npm version](https://badge.fury.io/js/questro.svg)](https://www.npmjs.com/package/questro)
+[![npm](https://img.shields.io/npm/v/questro.svg)](https://www.npmjs.com/package/questro)
 [![npm downloads](https://img.shields.io/npm/dm/questro.svg)](https://www.npmjs.com/package/questro)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/questro)](https://bundlephobia.com/package/questro)
 
-**[📖 Interactive Docs](https://marquespq.github.io/example-questro/)** • **[🌟 Showcase](https://marquespq.github.io/example-questro/#showcase)** • **[💬 Discussions](https://github.com/marquespq/questro/discussions)**
+**[📖 Interactive Docs](https://marquespq.github.io/example-questro/)** • **[🌟 Showcase](https://marquespq.github.io/example-questro/#showcase)** • **[💬 GitHub](https://github.com/marquespq/questro)**
 
 </div>
 
@@ -27,7 +27,7 @@
 - **🎨 Unstyled** - Bring your own design
 - **🔌 Flexible Storage** - LocalStorage, SessionStorage, Memory, or custom backends
 
-##  Installation
+## Installation
 
 ```bash
 npm install questro
@@ -186,21 +186,21 @@ class APIStorage<T> implements StorageAdapter<T> {
 
 ## 🔌 Framework Support
 
-| Framework | Support | Notes |
-|-----------|---------|-------|
-| React | ✅ Full | Complete support |
-| Next.js | ✅ SSR Ready | Use MemoryStorage on server |
+| Framework    | Support       | Notes                          |
+| ------------ | ------------- | ------------------------------ |
+| React        | ✅ Full       | Complete support               |
+| Next.js      | ✅ SSR Ready  | Use MemoryStorage on server    |
 | React Native | ✅ Compatible | AsyncStorage adapter available |
-| TypeScript | ✅ Built-in | Full type definitions included |
-| Remix | ✅ Compatible | Works out of the box |
-| Gatsby | ✅ Compatible | Works out of the box |
+| TypeScript   | ✅ Built-in   | Full type definitions included |
+| Remix        | ✅ Compatible | Works out of the box           |
+| Gatsby       | ✅ Compatible | Works out of the box           |
 
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to:
 
 - 🐛 [Report bugs](https://github.com/marquespq/questro/issues)
-- 💡 [Suggest features](https://github.com/marquespq/questro/discussions)
+- 💡 [Suggest features](https://github.com/marquespq/questro/issues/new)
 - 📖 [Improve documentation](https://github.com/marquespq/questro)
 - 🔧 [Submit pull requests](https://github.com/marquespq/questro/pulls)
 
@@ -214,7 +214,7 @@ MIT © [Gabriel Marques](https://github.com/marquespq)
 
 ## 🔗 Links
 
-**[📖 Documentation](https://marquespq.github.io/example-questro/)** • **[📦 NPM](https://www.npmjs.com/package/questro)** • **[💬 Discussions](https://github.com/marquespq/questro/discussions)** • **[🐛 Issues](https://github.com/marquespq/questro/issues)**
+**[📖 Documentation](https://marquespq.github.io/example-questro/)** • **[📦 NPM](https://www.npmjs.com/package/questro)** • **[� Issues](https://github.com/marquespq/questro/issues)** • **[� Pull Requests](https://github.com/marquespq/questro/pulls)**
 
 ---
 
