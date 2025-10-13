@@ -6,6 +6,8 @@ export default defineConfig({
     index: 'src/index.ts',
     'points/index': 'src/points/index.ts',
     'badges/index': 'src/badges/index.ts',
+    'quests/index': 'src/quests/index.ts',
+    'leaderboard/index': 'src/leaderboard/index.ts',
   },
 
   // Output formats
