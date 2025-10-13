@@ -78,6 +78,21 @@
       "types": "./dist/leaderboard/index.d.ts",
       "import": "./dist/leaderboard/index.mjs",
       "require": "./dist/leaderboard/index.js"
+    },
+    "./levels": {
+      "types": "./dist/levels/index.d.ts",
+      "import": "./dist/levels/index.mjs",
+      "require": "./dist/levels/index.js"
+    },
+    "./streaks": {
+      "types": "./dist/streaks/index.d.ts",
+      "import": "./dist/streaks/index.mjs",
+      "require": "./dist/streaks/index.js"
+    },
+    "./notifications": {
+      "types": "./dist/notifications/index.d.ts",
+      "import": "./dist/notifications/index.mjs",
+      "require": "./dist/notifications/index.js"
     }
   },
   "files": [

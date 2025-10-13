@@ -8,6 +8,9 @@ export default defineConfig({
     'badges/index': 'src/badges/index.ts',
     'quests/index': 'src/quests/index.ts',
     'leaderboard/index': 'src/leaderboard/index.ts',
+    'levels/index': 'src/levels/index.ts',
+    'streaks/index': 'src/streaks/index.ts',
+    'notifications/index': 'src/notifications/index.ts',
   },
 
   // Output formats
