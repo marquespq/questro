@@ -1,7 +1,7 @@
 {
   "name": "questro",
-  "version": "0.2.3",
-  "description": "Lightweight, modular gamification library for React applications",
+  "version": "0.2.4",
+  "description": "A lightweight (<135KB), modular gamification library for React. Add points, badges, quests, and leaderboards to your apps with zero dependencies. Perfect for fitness trackers, learning platforms, and e-commerce loyalty programs.",
   "keywords": [
     "react",
     "gamification",
@@ -10,13 +10,45 @@
     "leaderboard",
     "quests",
     "achievements",
-    "typescript"
+    "typescript",
+    "react-component",
+    "react-hooks",
+    "game",
+    "gaming",
+    "rewards",
+    "loyalty",
+    "engagement",
+    "progress",
+    "achievement-system",
+    "quest-system",
+    "point-system",
+    "badge-system",
+    "leaderboard-system",
+    "react-gamification",
+    "user-engagement",
+    "xp",
+    "experience-points",
+    "leveling",
+    "ranking",
+    "competition",
+    "motivation",
+    "fitness-app",
+    "learning-app",
+    "elearning",
+    "edtech"
   ],
-  "author": "Gabriel Marques",
+  "author": {
+    "name": "Gabriel Marques",
+    "url": "https://github.com/marquespq"
+  },
   "license": "MIT",
+  "homepage": "https://marquespq.github.io/example-questro/",
   "repository": {
     "type": "git",
     "url": "https://github.com/marquespq/questro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marquespq/questro/issues"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

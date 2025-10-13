@@ -1,11 +1,20 @@
+<div align="center">
+
 # 🎮 Questro
 
-A lightweight, modular gamification library for React applications.
+**A lightweight, modular gamification library for React**
 
 [![npm version](https://badge.fury.io/js/questro.svg)](https://www.npmjs.com/package/questro)
+[![npm downloads](https://img.shields.io/npm/dm/questro.svg)](https://www.npmjs.com/package/questro)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/questro)](https://bundlephobia.com/package/questro)
+
+**[📖 Interactive Docs](https://marquespq.github.io/example-questro/)** • **[🌟 Showcase](https://marquespq.github.io/example-questro/#showcase)** • **[💬 Discussions](https://github.com/marquespq/questro/discussions)**
+
+</div>
+
+---
 
 ## 🚀 Why Questro?
 
@@ -18,13 +27,7 @@ A lightweight, modular gamification library for React applications.
 - **🎨 Unstyled** - Bring your own design
 - **🔌 Flexible Storage** - LocalStorage, SessionStorage, Memory, or custom backends
 
-## 📖 Documentation
-
-**[→ View Interactive Documentation](https://marquespq.github.io/example-questro/)**
-
-Try all features live with interactive demos, real code examples, and a showcase of apps built with Questro.
-
-## 📦 Installation
+##  Installation
 
 ```bash
 npm install questro
@@ -183,35 +186,40 @@ class APIStorage<T> implements StorageAdapter<T> {
 
 ## 🔌 Framework Support
 
-- **React** ✅ Full support
-- **Next.js** ✅ SSR compatible (use MemoryStorage on server)
-- **React Native** ✅ AsyncStorage adapter available
-- **TypeScript** ✅ Full type definitions included
-
-## � Bundle Size
-
-| Version          | Size       | Change      |
-| ---------------- | ---------- | ----------- |
-| v0.2.2 (current) | **135 kB** | ✅ Baseline |
-| v0.1.0           | 426 kB     | 🔴 -68%     |
+| Framework | Support | Notes |
+|-----------|---------|-------|
+| React | ✅ Full | Complete support |
+| Next.js | ✅ SSR Ready | Use MemoryStorage on server |
+| React Native | ✅ Compatible | AsyncStorage adapter available |
+| TypeScript | ✅ Built-in | Full type definitions included |
+| Remix | ✅ Compatible | Works out of the box |
+| Gatsby | ✅ Compatible | Works out of the box |
 
 ## 🤝 Contributing
 
-Contributions welcome! Please check our [Contributing Guide](CONTRIBUTING.md).
+Contributions are welcome! Feel free to:
+
+- 🐛 [Report bugs](https://github.com/marquespq/questro/issues)
+- 💡 [Suggest features](https://github.com/marquespq/questro/discussions)
+- 📖 [Improve documentation](https://github.com/marquespq/questro)
+- 🔧 [Submit pull requests](https://github.com/marquespq/questro/pulls)
 
 ## 📄 License
 
 MIT © [Gabriel Marques](https://github.com/marquespq)
 
+---
+
+<div align="center">
+
 ## 🔗 Links
 
-- [📖 Documentation](https://marquespq.github.io/example-questro/)
-- [📦 NPM Package](https://www.npmjs.com/package/questro)
-- [💬 GitHub Discussions](https://github.com/marquespq/questro/discussions)
-- [🐛 Report Issues](https://github.com/marquespq/questro/issues)
+**[📖 Documentation](https://marquespq.github.io/example-questro/)** • **[📦 NPM](https://www.npmjs.com/package/questro)** • **[💬 Discussions](https://github.com/marquespq/questro/discussions)** • **[🐛 Issues](https://github.com/marquespq/questro/issues)**
 
 ---
 
 **Built with ❤️ by developers, for developers**
 
-If Questro helps your project, please consider giving it a ⭐ on [GitHub](https://github.com/marquespq/questro)!
+If Questro helps your project, please give it a ⭐ on **[GitHub](https://github.com/marquespq/questro)**!
+
+</div>
