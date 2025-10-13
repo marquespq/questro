@@ -3,6 +3,9 @@ import { PointsProvider } from "questro/points";
 import { BadgesProvider } from "questro/badges";
 import { QuestsProvider } from "questro/quests";
 import { LeaderboardProvider } from "questro/leaderboard";
+import { LevelsProvider } from "questro/levels";
+import { StreaksProvider } from "questro/streaks";
+import { NotificationsProvider } from "questro/notifications";
 import { Hero } from "./components/Hero";
 import { Features } from "./components/Features";
 import { Footer } from "./components/Footer";
@@ -10,6 +13,9 @@ import { PointsSection } from "./components/PointsSection";
 import { BadgesSection } from "./components/BadgesSection";
 import { QuestsSection } from "./components/QuestsSection";
 import { LeaderboardSection } from "./components/LeaderboardSection";
+import { LevelsSection } from "./components/LevelsSection";
+import { StreaksSection } from "./components/StreaksSection";
+import { NotificationsSection } from "./components/NotificationsSection";
 import { StorageSection } from "./components/StorageSection";
 import { EventsSection } from "./components/EventsSection";
 import { IntegrationsSection } from "./components/IntegrationsSection";
@@ -23,6 +29,9 @@ function ComponentsShowcase() {
     | "badges"
     | "quests"
     | "leaderboard"
+    | "levels"
+    | "streaks"
+    | "notifications"
     | "storage"
     | "events"
     | "integrations"
@@ -69,6 +78,24 @@ function ComponentsShowcase() {
             🏅 Leaderboard
           </button>
           <button
+            className={activeTab === "levels" ? "tab tab-active" : "tab"}
+            onClick={() => setActiveTab("levels")}
+          >
+            ⬆️ Levels/XP
+          </button>
+          <button
+            className={activeTab === "streaks" ? "tab tab-active" : "tab"}
+            onClick={() => setActiveTab("streaks")}
+          >
+            🔥 Streaks
+          </button>
+          <button
+            className={activeTab === "notifications" ? "tab tab-active" : "tab"}
+            onClick={() => setActiveTab("notifications")}
+          >
+            🔔 Notifications
+          </button>
+          <button
             className={activeTab === "storage" ? "tab tab-active" : "tab"}
             onClick={() => setActiveTab("storage")}
           >
@@ -99,6 +126,9 @@ function ComponentsShowcase() {
           {activeTab === "badges" && <BadgesSection />}
           {activeTab === "quests" && <QuestsSection />}
           {activeTab === "leaderboard" && <LeaderboardSection />}
+          {activeTab === "levels" && <LevelsSection />}
+          {activeTab === "streaks" && <StreaksSection />}
+          {activeTab === "notifications" && <NotificationsSection />}
           {activeTab === "storage" && <StorageSection />}
           {activeTab === "events" && <EventsSection />}
           {activeTab === "integrations" && <IntegrationsSection />}
@@ -113,17 +143,23 @@ function ComponentsShowcase() {
 
 export default function App() {
   return (
-    <PointsProvider config={{ userId, initialBalance: 0 }}>
-      <BadgesProvider config={{ userId, badges }}>
-        <QuestsProvider quests={quests} config={{ maxActiveQuests: 5 }}>
-          <LeaderboardProvider
-            entries={leaderboardEntries}
-            config={{ userId, metric: "points" }}
-          >
-            <ComponentsShowcase />
-          </LeaderboardProvider>
-        </QuestsProvider>
-      </BadgesProvider>
-    </PointsProvider>
+    <NotificationsProvider>
+      <PointsProvider config={{ userId, initialBalance: 0 }}>
+        <LevelsProvider config={{ userId, formula: "linear", baseXP: 100 }}>
+          <StreaksProvider config={{ userId, type: "daily", maxFreezes: 3 }}>
+            <BadgesProvider config={{ userId, badges }}>
+              <QuestsProvider quests={quests} config={{ maxActiveQuests: 5 }}>
+                <LeaderboardProvider
+                  entries={leaderboardEntries}
+                  config={{ userId, metric: "points" }}
+                >
+                  <ComponentsShowcase />
+                </LeaderboardProvider>
+              </QuestsProvider>
+            </BadgesProvider>
+          </StreaksProvider>
+        </LevelsProvider>
+      </PointsProvider>
+    </NotificationsProvider>
   );
 }
