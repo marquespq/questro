@@ -1,0 +1,73 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="#1e293b"/>
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">📚 EduPath Academy</text>
+  <circle cx="710" cy="45" r="28" fill="url(#eduGrad)"/>
+  <text x="710" y="52" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">85</text>
+  
+  <!-- Current Course -->
+  <rect x="30" y="110" width="480" height="160" rx="16" fill="#1e293b"/>
+  <text x="50" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">Current Learning Path</text>
+  <text x="50" y="175" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#eduGrad)">Web Development Fundamentals</text>
+  
+  <rect x="50" y="195" width="420" height="10" rx="5" fill="#334155"/>
+  <rect x="50" y="195" width="294" height="10" rx="5" fill="url(#eduGrad)"/>
+  
+  <text x="50" y="225" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">70% complete • 7/10 modules</text>
+  <text x="50" y="250" font-family="Arial, sans-serif" font-size="14" fill="#43e97b" font-weight="bold">+350 XP earned</text>
+  
+  <!-- Level Card -->
+  <rect x="540" y="110" width="230" height="160" rx="16" fill="#1e293b"/>
+  <text x="560" y="145" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Your Level</text>
+  
+  <circle cx="655" cy="195" r="45" fill="url(#eduGrad)"/>
+  <text x="655" y="205" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">12</text>
+  
+  <text x="560" y="265" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">150 XP to level 13</text>
+  
+  <!-- Achievements Grid -->
+  <rect x="30" y="300" width="360" height="170" rx="16" fill="#1e293b"/>
+  <text x="50" y="335" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Certifications Earned</text>
+  
+  <g>
+    <rect x="50" y="355" width="90" height="90" rx="12" fill="#334155"/>
+    <text x="95" y="410" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">🎓</text>
+    <text x="95" y="438" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">HTML Master</text>
+  </g>
+  
+  <g>
+    <rect x="155" y="355" width="90" height="90" rx="12" fill="#334155"/>
+    <text x="200" y="410" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">💻</text>
+    <text x="200" y="438" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">CSS Expert</text>
+  </g>
+  
+  <g>
+    <rect x="260" y="355" width="90" height="90" rx="12" fill="#1e293b" stroke="#43e97b" stroke-width="2"/>
+    <text x="305" y="385" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🔒</text>
+    <text x="305" y="410" font-family="Arial, sans-serif" font-size="11" fill="#43e97b" text-anchor="middle">In Progress</text>
+    <text x="305" y="428" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">JS Developer</text>
+  </g>
+  
+  <!-- Learning Stats -->
+  <rect x="410" y="300" width="360" height="170" rx="16" fill="#1e293b"/>
+  <text x="430" y="335" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Learning Stats</text>
+  
+  <text x="430" y="370" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Courses Completed</text>
+  <text x="430" y="395" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#eduGrad)">8</text>
+  
+  <text x="580" y="370" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Study Streak</text>
+  <text x="580" y="395" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#fbbf24">21🔥</text>
+  
+  <text x="430" y="430" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Total Study Time</text>
+  <text x="430" y="455" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#e2e8f0">48 hours</text>
+</svg>

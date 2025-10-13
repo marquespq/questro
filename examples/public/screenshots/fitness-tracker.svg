@@ -1,0 +1,67 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fitnessGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="#1e293b"/>
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">💪 FitQuest</text>
+  <circle cx="710" cy="45" r="25" fill="url(#fitnessGrad)"/>
+  <text x="710" y="55" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">12</text>
+  
+  <!-- Active Quest Card -->
+  <rect x="30" y="110" width="740" height="120" rx="16" fill="#1e293b"/>
+  <rect x="30" y="110" width="8" height="120" rx="4" fill="url(#fitnessGrad)"/>
+  <text x="55" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">Weekly Challenge: Cardio Master</text>
+  <text x="55" y="170" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Complete 5 cardio workouts this week</text>
+  
+  <!-- Progress bars -->
+  <rect x="55" y="190" width="600" height="8" rx="4" fill="#334155"/>
+  <rect x="55" y="190" width="360" height="8" rx="4" fill="url(#fitnessGrad)"/>
+  <text x="670" y="197" font-family="Arial, sans-serif" font-size="14" fill="#f093fb" font-weight="bold">3/5</text>
+  
+  <text x="55" y="220" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Reward: 500 points + "Cardio King" badge</text>
+  
+  <!-- Stats Grid -->
+  <g>
+    <!-- Workout Count -->
+    <rect x="30" y="260" width="230" height="100" rx="16" fill="#1e293b"/>
+    <text x="50" y="290" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">This Week</text>
+    <text x="50" y="330" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="url(#fitnessGrad)">12</text>
+    <text x="50" y="350" font-family="Arial, sans-serif" font-size="12" fill="#64748b">workouts</text>
+    
+    <!-- Calories -->
+    <rect x="285" y="260" width="230" height="100" rx="16" fill="#1e293b"/>
+    <text x="305" y="290" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Calories Burned</text>
+    <text x="305" y="330" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#f5576c">3,450</text>
+    <text x="305" y="350" font-family="Arial, sans-serif" font-size="12" fill="#64748b">kcal</text>
+    
+    <!-- Streak -->
+    <rect x="540" y="260" width="230" height="100" rx="16" fill="#1e293b"/>
+    <text x="560" y="290" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Streak</text>
+    <text x="560" y="335" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white">🔥 7</text>
+    <text x="560" y="350" font-family="Arial, sans-serif" font-size="12" fill="#64748b">days</text>
+  </g>
+  
+  <!-- Recent Achievements -->
+  <rect x="30" y="390" width="740" height="80" rx="16" fill="#1e293b"/>
+  <text x="50" y="420" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Recent Achievements</text>
+  
+  <circle cx="90" cy="450" r="20" fill="#fbbf24"/>
+  <text x="90" y="458" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">💪</text>
+  
+  <circle cx="155" cy="450" r="20" fill="#a78bfa"/>
+  <text x="155" y="458" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🏃</text>
+  
+  <circle cx="220" cy="450" r="20" fill="#34d399"/>
+  <text x="220" y="458" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">⚡</text>
+  
+  <rect x="260" y="435" width="180" height="30" rx="15" fill="url(#fitnessGrad)"/>
+  <text x="350" y="455" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">+ 3 more unlocked</text>
+</svg>

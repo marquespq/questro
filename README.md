@@ -5,187 +5,171 @@ A lightweight, modular gamification library for React applications.
 [![npm version](https://badge.fury.io/js/questro.svg)](https://www.npmjs.com/package/questro)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/questro)](https://bundlephobia.com/package/questro)
+
+## 🚀 Why Questro?
+
+**Questro** makes it dead simple to add gamification to any React app. Whether you're building a fitness tracker, learning platform, or e-commerce loyalty program - Questro provides the building blocks you need.
+
+- **🪶 Lightweight** - Only 135 kB (68% smaller than v0.1.0)
+- **🎯 Modular** - Import only what you need
+- **⚡ Zero Dependencies** - Except React
+- **📘 TypeScript First** - Full type safety
+- **🎨 Unstyled** - Bring your own design
+- **🔌 Flexible Storage** - LocalStorage, SessionStorage, Memory, or custom backends
 
 ## 📖 Documentation
 
-**[View Interactive Documentation →](https://marquespq.github.io/example-questro/)**
+**[→ View Interactive Documentation](https://marquespq.github.io/example-questro/)**
 
-Explore all features with live demos, code examples, and interactive components:
-
-- **📊 Points System** - Balance tracking, transactions, and rewards
-- **🏆 Badges** - Achievements with progress tracking and rarity tiers
-- **🎯 Quests** - Missions with multi-step objectives
-- **🏅 Leaderboard** - Rankings and competitive features
-- **💾 Storage Adapters** - LocalStorage, SessionStorage, Memory, Custom Backend
-- **⚡ Event System** - Real-time notifications and listeners
-- **🔌 Integrations** - Next.js, React Native, Tailwind, TypeScript, WebSockets
-
-## ✨ Features
-
-- 🪶 **Extremely Lightweight** - Zero dependencies (except React)
-- 🎯 **Tree-shakeable** - Import only what you need
-- 🔌 **Pluggable Storage** - Works with localStorage, sessionStorage, or any backend
-- 🎨 **Unstyled Components** - Bring your own styles
-- 📘 **TypeScript First** - Full type safety out of the box
-- ⚡ **Performance Focused** - Optimized for production use
-- ♿ **Accessible** - ARIA-compliant components
+Try all features live with interactive demos, real code examples, and a showcase of apps built with Questro.
 
 ## 📦 Installation
 
 ```bash
 npm install questro
-```
-
-```bash
+# or
 yarn add questro
-```
-
-```bash
+# or
 pnpm add questro
 ```
 
-## 🚀 Quick Start
-
-### Points System
+## ⚡ Quick Start
 
 ```tsx
-import { PointsProvider, usePoints, PointsDisplay } from 'questro/points';
-import { LocalStorageAdapter } from 'questro';
+import { PointsProvider, usePoints } from 'questro/points';
 
 function App() {
   return (
-    <PointsProvider config={{ userId: 'user-123' }} storage={new LocalStorageAdapter()}>
-      <GameContent />
+    <PointsProvider config={{ userId: 'user-123' }}>
+      <Game />
     </PointsProvider>
   );
 }
 
-function GameContent() {
-  const { balance, addPoints, subtractPoints } = usePoints();
+function Game() {
+  const { balance, addPoints } = usePoints();
 
   return (
     <div>
-      <h1>Your Points</h1>
-      <PointsDisplay />
-
-      <button onClick={() => addPoints(10, { action: 'task-completed' })}>
-        Complete Task (+10)
-      </button>
-
-      <button onClick={() => subtractPoints(5, { action: 'used-hint' })}>Use Hint (-5)</button>
+      <h1>Points: {balance}</h1>
+      <button onClick={() => addPoints(10)}>Complete Task (+10)</button>
     </div>
   );
 }
 ```
 
-## 📚 Documentation
+## 🎯 Core Modules
 
-### Points Module
+### 📊 Points System
 
-The points system allows you to track user points with full transaction history.
-
-#### Configuration
+Track user points with full transaction history and lifecycle events.
 
 ```tsx
-interface PointsConfig {
-  userId: string;
-  initialBalance?: number;
-  minBalance?: number;
-  maxBalance?: number;
-  onBalanceChange?: (balance: number) => void;
-}
+import { PointsProvider, usePoints } from 'questro/points';
+
+const { balance, lifetime, addPoints, subtractPoints } = usePoints();
 ```
 
-#### Hook API
+### 🏆 Badges & Achievements
+
+Unlock badges based on conditions with progress tracking and rarity tiers.
 
 ```tsx
-const {
-  balance, // Current point balance
-  lifetime, // Total points earned (never decreases)
-  transactions, // Transaction history
-  addPoints, // Add points
-  subtractPoints, // Subtract points
-  setBalance, // Set exact balance
-  reset, // Reset to initial state
-} = usePoints();
+import { BadgesProvider, useBadges } from 'questro/badges';
+
+const { badges, updateProgress, checkAndUnlockBadges } = useBadges();
 ```
 
-#### Components
+### 🎯 Quests & Missions
 
-**`<PointsDisplay />`** - Display current balance
+Multi-objective quests with automatic completion detection.
 
 ```tsx
-<PointsDisplay format={(balance) => `${balance} pts`} />
+import { QuestsProvider, useQuests } from 'questro/quests';
+
+const { activeQuests, updateProgress, completeQuest } = useQuests();
 ```
 
-**`<LifetimePointsDisplay />`** - Display lifetime points
+### � Leaderboard
+
+Competitive rankings with real-time updates.
 
 ```tsx
-<LifetimePointsDisplay />
+import { LeaderboardProvider, useLeaderboard } from 'questro/leaderboard';
+
+const { entries, updateScore, getUserRank } = useLeaderboard();
 ```
 
-**`<PointsAnimation />`** - Render prop for custom animations
+## 🌟 Showcase
 
-```tsx
-<PointsAnimation>
-  {(balance, isIncreasing) => (
-    <div className={isIncreasing ? 'points-up' : 'points-down'}>{balance}</div>
-  )}
-</PointsAnimation>
-```
+Real apps built with Questro:
 
-## 🎨 Styling
+### 🗣️ Language Learning (Duolingo-style)
 
-All components are unstyled by default. Add custom styles using:
+- Daily streak tracking with XP rewards
+- Achievement badges for milestones
+- Friend leaderboards by language
+- **Complexity:** Intermediate
 
-- CSS classes
-- CSS-in-JS libraries (styled-components, emotion, etc.)
-- Tailwind CSS
-- Inline styles
+### 💪 Fitness Tracker
 
-```tsx
-<PointsDisplay className="text-2xl font-bold text-blue-600" style={{ fontSize: '24px' }} />
-```
+- Workout quest system
+- Consistency streak badges
+- Weekly challenge leaderboards
+- **Complexity:** Beginner
+
+### ✅ Productivity Dashboard
+
+- Points for completed tasks
+- Daily/weekly goal quests
+- Team leaderboards
+- **Complexity:** Beginner
+
+### 🛒 E-commerce Loyalty Program
+
+- Purchase points system
+- VIP tier badges
+- Referral quests
+- **Complexity:** Advanced
+
+### 🎓 Learning Platform
+
+- Course completion badges
+- Study streak tracking
+- Skill mastery quests
+- **Complexity:** Intermediate
+
+### 📱 Social Media Gamification
+
+- Engagement points system
+- Influencer badges
+- Viral content quests
+- **Complexity:** Advanced
+
+**[→ View Full Showcase](https://marquespq.github.io/example-questro/#showcase)**
 
 ## 💾 Storage Adapters
 
-Questro provides flexible storage options:
+Questro works with any storage solution:
 
-### LocalStorage (Default)
+### LocalStorage
 
 ```tsx
 import { LocalStorageAdapter } from 'questro';
 
-<PointsProvider storage={new LocalStorageAdapter('my-game')} />;
-```
-
-### SessionStorage
-
-```tsx
-import { SessionStorageAdapter } from 'questro';
-
-<PointsProvider storage={new SessionStorageAdapter('my-game')} />;
-```
-
-### Memory (Testing/SSR)
-
-```tsx
-import { MemoryStorageAdapter } from 'questro';
-
-<PointsProvider storage={new MemoryStorageAdapter()} />;
+<PointsProvider storage={new LocalStorageAdapter()} />;
 ```
 
 ### Custom Backend
 
-Implement the `StorageAdapter` interface:
-
 ```tsx
 import type { StorageAdapter } from 'questro';
 
-class APIStorageAdapter<T> implements StorageAdapter<T> {
+class APIStorage<T> implements StorageAdapter<T> {
   async get(key: string): Promise<T | null> {
-    const response = await fetch(`/api/storage/${key}`);
-    return response.json();
+    const res = await fetch(`/api/storage/${key}`);
+    return res.json();
   }
 
   async set(key: string, value: T): Promise<void> {
@@ -194,53 +178,40 @@ class APIStorageAdapter<T> implements StorageAdapter<T> {
       body: JSON.stringify(value),
     });
   }
-
-  async remove(key: string): Promise<void> {
-    await fetch(`/api/storage/${key}`, { method: 'DELETE' });
-  }
-
-  async clear(): Promise<void> {
-    await fetch('/api/storage', { method: 'DELETE' });
-  }
 }
 ```
 
-## 🛠️ Development
+## 🔌 Framework Support
 
-```bash
-# Install dependencies
-npm install
+- **React** ✅ Full support
+- **Next.js** ✅ SSR compatible (use MemoryStorage on server)
+- **React Native** ✅ AsyncStorage adapter available
+- **TypeScript** ✅ Full type definitions included
 
-# Build library
-npm run build
+## � Bundle Size
 
-# Run tests
-npm test
-
-# Type check
-npm run type-check
-
-# Lint
-npm run lint
-```
-
-## 📋 Roadmap
-
-- [x] Points System
-- [ ] Badges/Achievements System
-- [ ] Quests/Missions System
-- [ ] Leaderboard/Ranking System
-- [ ] Storybook Documentation
-- [ ] Example Applications
+| Version          | Size       | Change      |
+| ---------------- | ---------- | ----------- |
+| v0.2.2 (current) | **135 kB** | ✅ Baseline |
+| v0.1.0           | 426 kB     | 🔴 -68%     |
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
+Contributions welcome! Please check our [Contributing Guide](CONTRIBUTING.md).
 
 ## 📄 License
 
 MIT © [Gabriel Marques](https://github.com/marquespq)
 
-## 🌟 Show Your Support
+## 🔗 Links
 
-If you find Questro useful, please consider giving it a ⭐️ on [GitHub](https://github.com/marquespq/questro)!
+- [📖 Documentation](https://marquespq.github.io/example-questro/)
+- [📦 NPM Package](https://www.npmjs.com/package/questro)
+- [💬 GitHub Discussions](https://github.com/marquespq/questro/discussions)
+- [🐛 Report Issues](https://github.com/marquespq/questro/issues)
+
+---
+
+**Built with ❤️ by developers, for developers**
+
+If Questro helps your project, please consider giving it a ⭐ on [GitHub](https://github.com/marquespq/questro)!

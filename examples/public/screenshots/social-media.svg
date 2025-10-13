@@ -1,0 +1,89 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="socialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fecfef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="#1e293b"/>
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">🚀 SocialVerse</text>
+  
+  <!-- Profile badge -->
+  <rect x="620" y="25" width="150" height="35" rx="18" fill="url(#socialGrad)"/>
+  <text x="650" y="48" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">✨ Influencer</text>
+  
+  <!-- Profile Overview -->
+  <rect x="30" y="110" width="350" height="180" rx="16" fill="#1e293b"/>
+  
+  <!-- Avatar -->
+  <circle cx="90" cy="170" r="40" fill="url(#socialGrad)"/>
+  <text x="90" y="180" font-family="Arial, sans-serif" font-size="32" text-anchor="middle">👤</text>
+  
+  <text x="150" y="160" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">@alex_creates</text>
+  <text x="150" y="185" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Content Creator • Level 24</text>
+  
+  <!-- Stats row -->
+  <g transform="translate(50, 210)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ff9a9e">8.2K</text>
+    <text x="0" y="18" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Followers</text>
+    
+    <text x="90" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#fecfef">156</text>
+    <text x="90" y="18" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Posts</text>
+    
+    <text x="170" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">42K</text>
+    <text x="170" y="18" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Likes</text>
+  </g>
+  
+  <rect x="50" y="255" width="300" height="20" rx="10" fill="url(#socialGrad)"/>
+  <text x="200" y="270" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">View Full Profile</text>
+  
+  <!-- Engagement Quest -->
+  <rect x="410" y="110" width="360" height="180" rx="16" fill="#1e293b"/>
+  <text x="430" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">🎯 Weekly Challenge</text>
+  <text x="430" y="170" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">Viral Content Creator</text>
+  
+  <text x="430" y="200" font-family="Arial, sans-serif" font-size="13" fill="#64748b">Get 10K total engagement this week</text>
+  
+  <rect x="430" y="215" width="300" height="10" rx="5" fill="#334155"/>
+  <rect x="430" y="215" width="210" height="10" rx="5" fill="url(#socialGrad)"/>
+  
+  <text x="430" y="245" font-family="Arial, sans-serif" font-size="14" fill="#ff9a9e" font-weight="bold">7.2K / 10K</text>
+  
+  <text x="430" y="270" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Rewards: 1,000 coins + "Viral Star" badge</text>
+  
+  <!-- Achievements Showcase -->
+  <rect x="30" y="320" width="740" height="150" rx="16" fill="#1e293b"/>
+  <text x="50" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">🏆 Recent Achievements</text>
+  
+  <!-- Achievement 1 -->
+  <rect x="50" y="375" width="160" height="70" rx="12" fill="#334155"/>
+  <text x="70" y="400" font-family="Arial, sans-serif" font-size="28">🔥</text>
+  <text x="110" y="395" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fbbf24">Hot Streak</text>
+  <text x="110" y="412" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">7 days posting</text>
+  <text x="110" y="430" font-family="Arial, sans-serif" font-size="11" fill="#fbbf24">+500 coins</text>
+  
+  <!-- Achievement 2 -->
+  <rect x="230" y="375" width="160" height="70" rx="12" fill="#334155"/>
+  <text x="250" y="400" font-family="Arial, sans-serif" font-size="28">💎</text>
+  <text x="290" y="395" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#a78bfa">Mega Like</text>
+  <text x="290" y="412" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Post got 1K likes</text>
+  <text x="290" y="430" font-family="Arial, sans-serif" font-size="11" fill="#a78bfa">+750 coins</text>
+  
+  <!-- Achievement 3 -->
+  <rect x="410" y="375" width="160" height="70" rx="12" fill="#334155"/>
+  <text x="430" y="400" font-family="Arial, sans-serif" font-size="28">⭐</text>
+  <text x="470" y="395" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#34d399">Influencer</text>
+  <text x="470" y="412" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">5K followers</text>
+  <text x="470" y="430" font-family="Arial, sans-serif" font-size="11" fill="#34d399">+1000 coins</text>
+  
+  <!-- Leaderboard preview -->
+  <rect x="590" y="375" width="160" height="70" rx="12" fill="url(#socialGrad)"/>
+  <text x="670" y="400" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">#3</text>
+  <text x="670" y="420" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Weekly Rank</text>
+  <text x="670" y="435" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">Top Creator</text>
+</svg>

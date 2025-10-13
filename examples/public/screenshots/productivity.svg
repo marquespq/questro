@@ -1,0 +1,76 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="prodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="#1e293b"/>
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">✓ TaskMaster Pro</text>
+  <rect x="630" y="25" width="140" height="35" rx="8" fill="url(#prodGrad)"/>
+  <text x="668" y="48" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">1,250 pts</text>
+  
+  <!-- Daily Quest -->
+  <rect x="30" y="110" width="360" height="160" rx="16" fill="#1e293b"/>
+  <text x="50" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">🎯 Daily Quest</text>
+  <text x="50" y="175" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">Complete 5 tasks today</text>
+  
+  <!-- Task checkboxes -->
+  <rect x="50" y="195" width="20" height="20" rx="4" fill="#00f2fe"/>
+  <text x="56" y="210" font-family="Arial, sans-serif" font-size="16" fill="#0f172a" font-weight="bold">✓</text>
+  <text x="80" y="210" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Review pull requests</text>
+  
+  <rect x="50" y="225" width="20" height="20" rx="4" fill="#00f2fe"/>
+  <text x="56" y="240" font-family="Arial, sans-serif" font-size="16" fill="#0f172a" font-weight="bold">✓</text>
+  <text x="80" y="240" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Update documentation</text>
+  
+  <rect x="50" y="255" width="20" height="20" rx="4" fill="#334155"/>
+  <text x="80" y="270" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Refactor API module</text>
+  
+  <text x="50" y="245" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4facfe">2/5</text>
+  
+  <!-- Streak Card -->
+  <rect x="410" y="110" width="360" height="160" rx="16" fill="#1e293b"/>
+  <text x="430" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">🔥 Productivity Streak</text>
+  <text x="430" y="210" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#fbbf24">14</text>
+  <text x="430" y="245" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">consecutive productive days</text>
+  
+  <!-- Achievements -->
+  <rect x="30" y="300" width="360" height="170" rx="16" fill="#1e293b"/>
+  <text x="50" y="335" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Achievements Unlocked</text>
+  
+  <g>
+    <circle cx="80" cy="390" r="30" fill="#fbbf24"/>
+    <text x="80" y="400" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">⭐</text>
+    <text x="80" y="440" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Early Bird</text>
+  </g>
+  
+  <g>
+    <circle cx="180" cy="390" r="30" fill="#a78bfa"/>
+    <text x="180" y="400" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🏆</text>
+    <text x="180" y="440" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Streak Master</text>
+  </g>
+  
+  <g>
+    <circle cx="280" cy="390" r="30" fill="#34d399"/>
+    <text x="280" y="400" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">💎</text>
+    <text x="280" y="440" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">100 Tasks</text>
+  </g>
+  
+  <!-- Stats -->
+  <rect x="410" y="300" width="360" height="170" rx="16" fill="#1e293b"/>
+  <text x="430" y="335" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">This Week</text>
+  
+  <text x="430" y="375" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Tasks Completed</text>
+  <text x="430" y="405" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="url(#prodGrad)">28</text>
+  
+  <text x="580" y="375" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Points Earned</text>
+  <text x="580" y="405" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#fbbf24">+560</text>
+  
+  <text x="430" y="445" font-family="Arial, sans-serif" font-size="12" fill="#64748b">↑ 23% from last week</text>
+</svg>
