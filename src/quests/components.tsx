@@ -72,7 +72,9 @@ export function QuestCard({
       {quest.rewards && (
         <div style={styles.rewards}>
           <span style={styles.rewardsLabel}>Rewards:</span>
-          {quest.rewards.points && <span style={styles.rewardItem}>🎯 {quest.rewards.points} pts</span>}
+          {quest.rewards.points && (
+            <span style={styles.rewardItem}>🎯 {quest.rewards.points} pts</span>
+          )}
           {quest.rewards.badgeId && <span style={styles.rewardItem}>🏆 Badge</span>}
         </div>
       )}
@@ -89,9 +91,7 @@ export function QuestCard({
               Abandon
             </button>
           )}
-          {quest.status === 'completed' && (
-            <span style={styles.statusCompleted}>✓ Completed</span>
-          )}
+          {quest.status === 'completed' && <span style={styles.statusCompleted}>✓ Completed</span>}
         </div>
       )}
     </div>

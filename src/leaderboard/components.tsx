@@ -57,10 +57,8 @@ function LeaderboardRow({ entry, isCurrentUser, showAvatar }: LeaderboardRowProp
         ...(isCurrentUser ? styles.rowHighlight : {}),
       }}
     >
-      <div style={styles.rank}>
-        {medal || `#${entry.rank}`}
-      </div>
-      
+      <div style={styles.rank}>{medal || `#${entry.rank}`}</div>
+
       {showAvatar && (
         <div style={styles.avatar}>
           {entry.avatar ? (
@@ -70,9 +68,9 @@ function LeaderboardRow({ entry, isCurrentUser, showAvatar }: LeaderboardRowProp
           )}
         </div>
       )}
-      
+
       <div style={styles.username}>{entry.username}</div>
-      
+
       <div style={styles.score}>{entry.score.toLocaleString()}</div>
     </div>
   );
@@ -115,7 +113,7 @@ export function LeaderboardFilters({
           ))}
         </div>
       </div>
-      
+
       <div style={styles.filterGroup}>
         <label style={styles.filterLabel}>Metric:</label>
         <div style={styles.filterButtons}>

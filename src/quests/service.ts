@@ -45,7 +45,7 @@ export class QuestsServiceImpl implements QuestsService {
 
     if (expiredQuests.length > 0) {
       this.state.activeQuests = this.state.activeQuests.filter(
-        (q) => !expiredQuests.some((eq) => eq.id === q.id),
+        (q) => !expiredQuests.some((eq) => eq.id === q.id)
       );
       expiredQuests.forEach((quest) => this.emit('quest-expired', quest));
       this.notifyStateChange();
@@ -111,7 +111,7 @@ export class QuestsServiceImpl implements QuestsService {
   updateObjectiveProgress(
     questId: EntityId,
     objectiveId: EntityId,
-    progress: number,
+    progress: number
   ): Result<Quest> {
     const quest = this.state.quests.find((q) => q.id === questId);
 

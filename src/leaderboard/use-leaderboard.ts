@@ -19,7 +19,7 @@ export function useLeaderboard(): UseLeaderboardReturn {
   const { service } = useLeaderboardContext();
   const [entries, setEntries] = useState<LeaderboardEntry[]>(service.getState().entries);
   const [currentUserEntry, setCurrentUserEntry] = useState<LeaderboardEntry | undefined>(
-    service.getCurrentUserEntry(),
+    service.getCurrentUserEntry()
   );
   const [period, setPeriodState] = useState<LeaderboardPeriod>(service.getState().period);
   const [metric, setMetricState] = useState<LeaderboardMetric>(service.getState().metric);
@@ -39,35 +39,35 @@ export function useLeaderboard(): UseLeaderboardReturn {
     (limit?: number) => {
       return service.getTopEntries(limit);
     },
-    [service],
+    [service]
   );
 
   const getUserEntry = useCallback(
     (userId: EntityId) => {
       return service.getUserEntry(userId);
     },
-    [service],
+    [service]
   );
 
   const updateScore = useCallback(
     (userId: EntityId, score: number, username?: string) => {
       service.updateScore(userId, score, username);
     },
-    [service],
+    [service]
   );
 
   const setPeriod = useCallback(
     (newPeriod: LeaderboardPeriod) => {
       service.setPeriod(newPeriod);
     },
-    [service],
+    [service]
   );
 
   const setMetric = useCallback(
     (newMetric: LeaderboardMetric) => {
       service.setMetric(newMetric);
     },
-    [service],
+    [service]
   );
 
   return {

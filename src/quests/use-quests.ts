@@ -40,56 +40,56 @@ export function useQuests(): UseQuestsReturn {
     (questId: EntityId) => {
       service.startQuest(questId);
     },
-    [service],
+    [service]
   );
 
   const abandonQuest = useCallback(
     (questId: EntityId) => {
       service.abandonQuest(questId);
     },
-    [service],
+    [service]
   );
 
   const updateProgress = useCallback(
     (questId: EntityId, objectiveId: EntityId, progress: number) => {
       service.updateObjectiveProgress(questId, objectiveId, progress);
     },
-    [service],
+    [service]
   );
 
   const completeObjective = useCallback(
     (questId: EntityId, objectiveId: EntityId) => {
       service.completeObjective(questId, objectiveId);
     },
-    [service],
+    [service]
   );
 
   const getQuestById = useCallback(
     (questId: EntityId) => {
       return service.getQuestById(questId);
     },
-    [service],
+    [service]
   );
 
   const resetQuest = useCallback(
     (questId: EntityId) => {
       service.resetQuest(questId);
     },
-    [service],
+    [service]
   );
 
   const addQuest = useCallback(
     (quest: Omit<Quest, 'id' | 'createdAt' | 'updatedAt'>) => {
       service.addQuest(quest);
     },
-    [service],
+    [service]
   );
 
   const removeQuest = useCallback(
     (questId: EntityId) => {
       service.removeQuest(questId);
     },
-    [service],
+    [service]
   );
 
   return {

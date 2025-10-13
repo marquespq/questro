@@ -76,7 +76,13 @@ const sampleQuests: Quest[] = [
     recurrence: 'one-time',
     status: 'available',
     objectives: [
-      { id: generateId(), description: 'Add profile picture', target: 1, current: 0, completed: false },
+      {
+        id: generateId(),
+        description: 'Add profile picture',
+        target: 1,
+        current: 0,
+        completed: false,
+      },
       { id: generateId(), description: 'Write bio', target: 1, current: 0, completed: false },
     ],
     rewards: { points: 100 },
@@ -92,7 +98,13 @@ const sampleQuests: Quest[] = [
     recurrence: 'daily',
     status: 'available',
     objectives: [
-      { id: generateId(), description: 'Complete practice sessions', target: 3, current: 0, completed: false },
+      {
+        id: generateId(),
+        description: 'Complete practice sessions',
+        target: 3,
+        current: 0,
+        completed: false,
+      },
     ],
     rewards: { points: 150 },
     createdAt: now(),
@@ -107,9 +119,27 @@ const sampleQuests: Quest[] = [
     recurrence: 'one-time',
     status: 'available',
     objectives: [
-      { id: generateId(), description: 'Complete Module 1', target: 1, current: 0, completed: false },
-      { id: generateId(), description: 'Complete Module 2', target: 1, current: 0, completed: false },
-      { id: generateId(), description: 'Complete Module 3', target: 1, current: 0, completed: false },
+      {
+        id: generateId(),
+        description: 'Complete Module 1',
+        target: 1,
+        current: 0,
+        completed: false,
+      },
+      {
+        id: generateId(),
+        description: 'Complete Module 2',
+        target: 1,
+        current: 0,
+        completed: false,
+      },
+      {
+        id: generateId(),
+        description: 'Complete Module 3',
+        target: 1,
+        current: 0,
+        completed: false,
+      },
       { id: generateId(), description: 'Pass final exam', target: 1, current: 0, completed: false },
     ],
     rewards: { points: 500, badgeId: sampleBadges[2].id },
@@ -132,8 +162,16 @@ const sampleLeaderboardEntries: LeaderboardEntry[] = [
 function GamificationDashboard() {
   const { balance, lifetime, addPoints, subtractPoints } = usePoints();
   const { unlockedBadges, lockedBadges, updateProgress, checkAndUnlockBadges } = useBadges();
-  const { activeQuests, completedQuests, availableQuests, startQuest, abandonQuest, updateProgress: updateQuestProgress } = useQuests();
-  const { entries, currentUserEntry, updateScore, period, metric, setPeriod, setMetric } = useLeaderboard();
+  const {
+    activeQuests,
+    completedQuests,
+    availableQuests,
+    startQuest,
+    abandonQuest,
+    updateProgress: updateQuestProgress,
+  } = useQuests();
+  const { entries, currentUserEntry, updateScore, period, metric, setPeriod, setMetric } =
+    useLeaderboard();
 
   const [lessonsCompleted, setLessonsCompleted] = useState(0);
   const [questsCompleted, setQuestsCompleted] = useState(0);
@@ -142,7 +180,7 @@ function GamificationDashboard() {
     addPoints(100, { action: 'lesson-complete', description: 'Completed a lesson' });
     const newCount = lessonsCompleted + 1;
     setLessonsCompleted(newCount);
-    
+
     updateProgress('lessons-completed', newCount);
     checkAndUnlockBadges();
 
@@ -155,7 +193,7 @@ function GamificationDashboard() {
     addPoints(50, { action: 'quiz-complete', description: 'Completed a quiz' });
     updateProgress('perfect-quiz', 1);
     checkAndUnlockBadges();
-    
+
     if (currentUserEntry) {
       updateScore(userId, currentUserEntry.score + 50, 'You');
     }
@@ -172,22 +210,31 @@ function GamificationDashboard() {
   const handleSimulateQuestProgress = () => {
     if (activeQuests.length > 0) {
       const quest = activeQuests[0];
-      const firstIncompleteObjective = quest.objectives.find(obj => !obj.completed);
+      const firstIncompleteObjective = quest.objectives.find((obj) => !obj.completed);
       if (firstIncompleteObjective) {
-        updateQuestProgress(quest.id, firstIncompleteObjective.id, firstIncompleteObjective.current + 1);
-        
-        const allObjectivesComplete = quest.objectives.every(obj => 
-          obj.id === firstIncompleteObjective.id ? firstIncompleteObjective.current + 1 >= firstIncompleteObjective.target : obj.completed
+        updateQuestProgress(
+          quest.id,
+          firstIncompleteObjective.id,
+          firstIncompleteObjective.current + 1
         );
-        
+
+        const allObjectivesComplete = quest.objectives.every((obj) =>
+          obj.id === firstIncompleteObjective.id
+            ? firstIncompleteObjective.current + 1 >= firstIncompleteObjective.target
+            : obj.completed
+        );
+
         if (allObjectivesComplete) {
           const newQuestsCount = questsCompleted + 1;
           setQuestsCompleted(newQuestsCount);
           updateProgress('quests-completed', newQuestsCount);
           checkAndUnlockBadges();
-          
+
           if (quest.rewards.points && currentUserEntry) {
-            addPoints(quest.rewards.points, { action: 'quest-complete', description: 'Completed a quest' });
+            addPoints(quest.rewards.points, {
+              action: 'quest-complete',
+              description: 'Completed a quest',
+            });
             updateScore(userId, currentUserEntry.score + quest.rewards.points, 'You');
           }
         }
@@ -217,13 +264,24 @@ function GamificationDashboard() {
             </div>
           </div>
           <div style={styles.actions}>
-            <button onClick={handleCompleteLesson} style={{ ...styles.button, ...styles.buttonPrimary }}>
+            <button
+              onClick={handleCompleteLesson}
+              style={{ ...styles.button, ...styles.buttonPrimary }}
+            >
               Complete Lesson (+100 pts)
             </button>
-            <button onClick={handleCompleteQuiz} style={{ ...styles.button, ...styles.buttonSecondary }}>
+            <button
+              onClick={handleCompleteQuiz}
+              style={{ ...styles.button, ...styles.buttonSecondary }}
+            >
               Complete Quiz (+50 pts)
             </button>
-            <button onClick={() => subtractPoints(50, { action: 'penalty', description: 'Applied penalty' })} style={{ ...styles.button, ...styles.buttonDanger }}>
+            <button
+              onClick={() =>
+                subtractPoints(50, { action: 'penalty', description: 'Applied penalty' })
+              }
+              style={{ ...styles.button, ...styles.buttonDanger }}
+            >
               Apply Penalty (-50 pts)
             </button>
           </div>
@@ -254,37 +312,31 @@ function GamificationDashboard() {
             completedCount={completedQuests.length}
             availableCount={availableQuests.length}
           />
-          
+
           {activeQuests.length > 0 && (
             <div>
               <h3 style={styles.sectionTitle}>Active Quests</h3>
-              <QuestList
-                quests={activeQuests}
-                onQuestAbandon={handleAbandonQuest}
-              />
-              <button onClick={handleSimulateQuestProgress} style={{ ...styles.button, ...styles.buttonPrimary, marginTop: '12px' }}>
+              <QuestList quests={activeQuests} onQuestAbandon={handleAbandonQuest} />
+              <button
+                onClick={handleSimulateQuestProgress}
+                style={{ ...styles.button, ...styles.buttonPrimary, marginTop: '12px' }}
+              >
                 Simulate Progress on Active Quest
               </button>
             </div>
           )}
-          
+
           {availableQuests.length > 0 && (
             <div style={{ marginTop: '24px' }}>
               <h3 style={styles.sectionTitle}>Available Quests</h3>
-              <QuestList
-                quests={availableQuests}
-                onQuestStart={handleStartQuest}
-              />
+              <QuestList quests={availableQuests} onQuestStart={handleStartQuest} />
             </div>
           )}
-          
+
           {completedQuests.length > 0 && (
             <div style={{ marginTop: '24px' }}>
               <h3 style={styles.sectionTitle}>Completed Quests</h3>
-              <QuestList
-                quests={completedQuests}
-                showActions={false}
-              />
+              <QuestList quests={completedQuests} showActions={false} />
             </div>
           )}
         </section>
@@ -312,7 +364,10 @@ function App() {
     <PointsProvider config={{ userId, initialBalance: 0, minBalance: 0 }}>
       <BadgesProvider config={{ userId, badges: sampleBadges }}>
         <QuestsProvider quests={sampleQuests} config={{ maxActiveQuests: 3 }}>
-          <LeaderboardProvider entries={sampleLeaderboardEntries} config={{ userId, metric: 'points' }}>
+          <LeaderboardProvider
+            entries={sampleLeaderboardEntries}
+            config={{ userId, metric: 'points' }}
+          >
             <GamificationDashboard />
           </LeaderboardProvider>
         </QuestsProvider>

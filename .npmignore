@@ -1,0 +1,30 @@
+# Development files
+src/
+examples/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Config files
+tsconfig.json
+tsup.config.ts
+.eslintrc.json
+.prettierrc
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+*.tsbuildinfo
+
+# Documentation (keep README)
+CONTRIBUTING.md

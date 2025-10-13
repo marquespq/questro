@@ -1,6 +1,6 @@
 {
   "name": "questro",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lightweight, modular gamification library for React applications",
   "keywords": [
     "react",
