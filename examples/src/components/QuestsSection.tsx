@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useQuests, QuestCard, QuestStats } from 'questro/quests';
-import { usePoints } from 'questro/points';
+import { useState, useEffect } from "react";
+import { useQuests, QuestCard, QuestStats } from "questro/quests";
+import { usePoints } from "questro/points";
 
 export function QuestsSection() {
   const {
@@ -51,8 +51,8 @@ export function QuestsSection() {
 
         // Adiciona pontos também
         addPoints(10, {
-          action: 'quest-progress',
-          description: 'Quest progress made',
+          action: "quest-progress",
+          description: "Quest progress made",
         });
       }
     }
@@ -71,7 +71,7 @@ export function QuestsSection() {
       // Recompensa por completar
       if (quest.rewards.points) {
         addPoints(quest.rewards.points, {
-          action: 'quest-complete',
+          action: "quest-complete",
           description: `Completed: ${quest.title}`,
         });
       }
@@ -94,34 +94,38 @@ export function QuestsSection() {
           {/* Explicação */}
           <div
             style={{
-              marginBottom: '24px',
-              padding: '16px',
-              backgroundColor: '#fef3c7',
-              border: '1px solid #fde047',
-              borderRadius: '10px',
+              marginBottom: "24px",
+              padding: "16px",
+              backgroundColor: "#fef3c7",
+              border: "1px solid #fde047",
+              borderRadius: "10px",
             }}
           >
             <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '8px',
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "8px",
               }}
             >
-              <span style={{ fontSize: '20px', marginRight: '8px' }}>💡</span>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: '#92400e' }}>
+              <span style={{ fontSize: "20px", marginRight: "8px" }}>💡</span>
+              <div
+                style={{ fontSize: "14px", fontWeight: 700, color: "#92400e" }}
+              >
                 How Quests Work
               </div>
             </div>
-            <div style={{ fontSize: '13px', color: '#92400e', lineHeight: '1.6' }}>
-              <strong>Quest Types:</strong> One-time quests reset never, daily quests reset every
-              day
+            <div
+              style={{ fontSize: "13px", color: "#92400e", lineHeight: "1.6" }}
+            >
+              <strong>Quest Types:</strong> One-time quests reset never, daily
+              quests reset every day
               <br />
-              <strong>Objective Tracking:</strong> Multi-step objectives track progress individually
-              (0/5 actions)
+              <strong>Objective Tracking:</strong> Multi-step objectives track
+              progress individually (0/5 actions)
               <br />
-              <strong>Rewards:</strong> Earn points automatically when quest completes (added to
-              balance)
+              <strong>Rewards:</strong> Earn points automatically when quest
+              completes (added to balance)
             </div>
           </div>
 
@@ -129,42 +133,43 @@ export function QuestsSection() {
           {rewardNotification && (
             <div
               style={{
-                marginBottom: '24px',
-                padding: '16px',
-                backgroundColor: '#fef3c7',
-                border: '2px solid #eab308',
-                borderRadius: '12px',
-                animation: 'slideInDown 0.3s ease-out',
-                boxShadow: '0 4px 12px rgba(234, 179, 8, 0.2)',
+                marginBottom: "24px",
+                padding: "16px",
+                backgroundColor: "#fef3c7",
+                border: "2px solid #eab308",
+                borderRadius: "12px",
+                animation: "slideInDown 0.3s ease-out",
+                boxShadow: "0 4px 12px rgba(234, 179, 8, 0.2)",
               }}
             >
               <div
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
                 }}
               >
-                <div style={{ fontSize: '32px' }}>🎯</div>
+                <div style={{ fontSize: "32px" }}>🎯</div>
                 <div style={{ flex: 1 }}>
                   <div
                     style={{
-                      fontSize: '14px',
+                      fontSize: "14px",
                       fontWeight: 700,
-                      color: '#92400e',
-                      marginBottom: '4px',
+                      color: "#92400e",
+                      marginBottom: "4px",
                     }}
                   >
                     🎉 Quest Completed!
                   </div>
-                  <div style={{ fontSize: '13px', color: '#a16207' }}>
-                    {rewardNotification.title} (+{rewardNotification.points} points)
+                  <div style={{ fontSize: "13px", color: "#a16207" }}>
+                    {rewardNotification.title} (+{rewardNotification.points}{" "}
+                    points)
                   </div>
                 </div>
                 <div
                   style={{
-                    fontSize: '24px',
-                    animation: 'bounce 0.5s ease-in-out',
+                    fontSize: "24px",
+                    animation: "bounce 0.5s ease-in-out",
                   }}
                 >
                   💎
@@ -174,25 +179,31 @@ export function QuestsSection() {
           )}
 
           {activeQuests.length > 0 && (
-            <div style={{ marginBottom: '24px' }}>
+            <div style={{ marginBottom: "24px" }}>
               <div
                 style={{
-                  fontSize: '14px',
+                  fontSize: "14px",
                   fontWeight: 600,
-                  color: '#64748b',
-                  marginBottom: '12px',
+                  color: "#64748b",
+                  marginBottom: "12px",
                 }}
               >
                 Quest Actions
               </div>
-              <div className="demo-actions" style={{ gridTemplateColumns: '1fr 1fr' }}>
-                <button onClick={simulateProgress} className="demo-action-button">
+              <div
+                className="demo-actions"
+                style={{ gridTemplateColumns: "1fr 1fr" }}
+              >
+                <button
+                  onClick={simulateProgress}
+                  className="demo-action-button"
+                >
                   ➕ Make Progress (+1)
                 </button>
                 <button
                   onClick={completeAllObjectives}
                   className="demo-action-button"
-                  style={{ backgroundColor: '#10b981' }}
+                  style={{ backgroundColor: "#10b981" }}
                 >
                   ✅ Complete All
                 </button>
@@ -205,12 +216,12 @@ export function QuestsSection() {
               <div>
                 <div
                   style={{
-                    fontSize: '13px',
+                    fontSize: "13px",
                     fontWeight: 600,
-                    color: '#64748b',
-                    marginBottom: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
+                    color: "#64748b",
+                    marginBottom: "12px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
                   }}
                 >
                   Available Quests
@@ -227,12 +238,12 @@ export function QuestsSection() {
               <div>
                 <div
                   style={{
-                    fontSize: '13px',
+                    fontSize: "13px",
                     fontWeight: 600,
-                    color: '#6366f1',
-                    marginBottom: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
+                    color: "#6366f1",
+                    marginBottom: "12px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
                   }}
                 >
                   Active Quest
@@ -249,49 +260,51 @@ export function QuestsSection() {
               <div>
                 <div
                   style={{
-                    fontSize: '13px',
+                    fontSize: "13px",
                     fontWeight: 600,
-                    color: '#10b981',
-                    marginBottom: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
+                    color: "#10b981",
+                    marginBottom: "12px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
                   }}
                 >
                   Completed ({completedQuests.length})
                 </div>
                 <div
                   style={{
-                    padding: '16px',
-                    backgroundColor: '#f0fdf4',
-                    border: '1px solid #bbf7d0',
-                    borderRadius: '10px',
+                    padding: "16px",
+                    backgroundColor: "#f0fdf4",
+                    border: "1px solid #bbf7d0",
+                    borderRadius: "10px",
                   }}
                 >
                   {completedQuests.map((quest) => (
                     <div
                       key={quest.id}
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        marginBottom: '8px',
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "8px",
                       }}
                     >
-                      <span style={{ fontSize: '24px', marginRight: '12px' }}>{quest.icon}</span>
+                      <span style={{ fontSize: "24px", marginRight: "12px" }}>
+                        {quest.icon}
+                      </span>
                       <div style={{ flex: 1 }}>
                         <div
                           style={{
-                            fontSize: '14px',
+                            fontSize: "14px",
                             fontWeight: 600,
-                            color: '#15803d',
+                            color: "#15803d",
                           }}
                         >
                           {quest.title}
                         </div>
-                        <div style={{ fontSize: '12px', color: '#16a34a' }}>
+                        <div style={{ fontSize: "12px", color: "#16a34a" }}>
                           +{quest.rewards.points} points earned
                         </div>
                       </div>
-                      <div style={{ fontSize: '20px' }}>✅</div>
+                      <div style={{ fontSize: "20px" }}>✅</div>
                     </div>
                   ))}
                 </div>
@@ -303,14 +316,20 @@ export function QuestsSection() {
               completedQuests.length === 0 && (
                 <div
                   style={{
-                    textAlign: 'center',
-                    padding: '40px',
-                    color: '#94a3b8',
+                    textAlign: "center",
+                    padding: "40px",
+                    color: "#94a3b8",
                   }}
                 >
-                  <div style={{ fontSize: '48px', marginBottom: '16px' }}>🎯</div>
-                  <div style={{ fontSize: '16px', fontWeight: 600 }}>No quests available</div>
-                  <div style={{ fontSize: '14px' }}>Check back later for new missions!</div>
+                  <div style={{ fontSize: "48px", marginBottom: "16px" }}>
+                    🎯
+                  </div>
+                  <div style={{ fontSize: "16px", fontWeight: 600 }}>
+                    No quests available
+                  </div>
+                  <div style={{ fontSize: "14px" }}>
+                    Check back later for new missions!
+                  </div>
                 </div>
               )}
           </div>

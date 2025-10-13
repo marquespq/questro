@@ -10,12 +10,21 @@ import { PointsSection } from "./components/PointsSection";
 import { BadgesSection } from "./components/BadgesSection";
 import { QuestsSection } from "./components/QuestsSection";
 import { LeaderboardSection } from "./components/LeaderboardSection";
+import { StorageSection } from "./components/StorageSection";
+import { EventsSection } from "./components/EventsSection";
+import { IntegrationsSection } from "./components/IntegrationsSection";
 import { userId, badges, quests, leaderboardEntries } from "./data/mockData";
 import "./styles/responsive.css";
 
 function ComponentsShowcase() {
   const [activeTab, setActiveTab] = useState<
-    "points" | "badges" | "quests" | "leaderboard"
+    | "points"
+    | "badges"
+    | "quests"
+    | "leaderboard"
+    | "storage"
+    | "events"
+    | "integrations"
   >("points");
 
   return (
@@ -29,7 +38,10 @@ function ComponentsShowcase() {
           Try all features live. No installation needed.
         </p>
 
-        <div className="tabs">
+        <div
+          className="tabs"
+          style={{ overflowX: "auto", whiteSpace: "nowrap" }}
+        >
           <button
             className={activeTab === "points" ? "tab tab-active" : "tab"}
             onClick={() => setActiveTab("points")}
@@ -54,6 +66,24 @@ function ComponentsShowcase() {
           >
             🏅 Leaderboard
           </button>
+          <button
+            className={activeTab === "storage" ? "tab tab-active" : "tab"}
+            onClick={() => setActiveTab("storage")}
+          >
+            💾 Storage
+          </button>
+          <button
+            className={activeTab === "events" ? "tab tab-active" : "tab"}
+            onClick={() => setActiveTab("events")}
+          >
+            ⚡ Events
+          </button>
+          <button
+            className={activeTab === "integrations" ? "tab tab-active" : "tab"}
+            onClick={() => setActiveTab("integrations")}
+          >
+            🔌 Integrations
+          </button>
         </div>
 
         <div className="tab-content">
@@ -61,6 +91,9 @@ function ComponentsShowcase() {
           {activeTab === "badges" && <BadgesSection />}
           {activeTab === "quests" && <QuestsSection />}
           {activeTab === "leaderboard" && <LeaderboardSection />}
+          {activeTab === "storage" && <StorageSection />}
+          {activeTab === "events" && <EventsSection />}
+          {activeTab === "integrations" && <IntegrationsSection />}
         </div>
       </section>
 

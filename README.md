@@ -10,7 +10,15 @@ A lightweight, modular gamification library for React applications.
 
 **[View Interactive Documentation →](https://marquespq.github.io/example-questro/)**
 
-Explore all features with live demos, code examples, and interactive components.
+Explore all features with live demos, code examples, and interactive components:
+
+- **📊 Points System** - Balance tracking, transactions, and rewards
+- **🏆 Badges** - Achievements with progress tracking and rarity tiers
+- **🎯 Quests** - Missions with multi-step objectives
+- **🏅 Leaderboard** - Rankings and competitive features
+- **💾 Storage Adapters** - LocalStorage, SessionStorage, Memory, Custom Backend
+- **⚡ Event System** - Real-time notifications and listeners
+- **🔌 Integrations** - Next.js, React Native, Tailwind, TypeScript, WebSockets
 
 ## ✨ Features
 

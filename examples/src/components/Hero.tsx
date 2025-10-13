@@ -12,26 +12,6 @@ export function Hero() {
           leaderboards to your application. Make your users addicted to your
           product.
         </p>
-        <div className="hero-buttons">
-          <a
-            href="https://www.npmjs.com/package/questro"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-primary"
-            style={{ textDecoration: "none", display: "inline-block" }}
-          >
-            <span>npm install questro</span>
-          </a>
-          <a
-            href="https://github.com/marquespq/questro"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-secondary"
-            style={{ textDecoration: "none", display: "inline-block" }}
-          >
-            View on GitHub →
-          </a>
-        </div>
       </div>
     </header>
   );

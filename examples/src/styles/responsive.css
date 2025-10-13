@@ -142,11 +142,6 @@
   margin: 0;
 }
 
-/* Interactive Section */
-.interactive {
-  padding: 60px 24px;
-  background-color: #f8fafc;
-}
 
 .interactive-title {
   font-size: clamp(32px, 6vw, 48px);
@@ -413,6 +408,8 @@
   margin: 0;
   line-height: 1.6;
   max-width: 100%;
+  text-align: left;
+  white-space: pre;
 }
 
 .code-preview {
