@@ -26,5 +26,11 @@ node_modules/
 # Build artifacts
 *.tsbuildinfo
 
+# Source maps (keep only code)
+**/*.map
+
+# Metafiles (bundle analysis)
+**/metafile-*.json
+
 # Documentation (keep README)
 CONTRIBUTING.md
