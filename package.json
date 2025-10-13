@@ -1,6 +1,6 @@
 {
   "name": "questro",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A lightweight (<135KB), modular gamification library for React. Add points, badges, quests, and leaderboards to your apps with zero dependencies. Perfect for fitness trackers, learning platforms, and e-commerce loyalty programs.",
   "keywords": [
     "react",
