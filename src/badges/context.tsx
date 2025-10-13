@@ -78,4 +78,3 @@ export function useBadgesContext(): BadgesService {
   }
   return context;
 }
-

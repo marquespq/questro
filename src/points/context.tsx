@@ -72,4 +72,3 @@ export function usePointsContext(): PointsService {
   }
   return context;
 }
-
