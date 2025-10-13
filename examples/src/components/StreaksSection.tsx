@@ -1,4 +1,4 @@
-import { useStreaks, StreakDisplay, StreakCalendar } from "questro/streaks";
+import { useStreaks, StreakDisplay, StreakCalendar } from 'questro/streaks';
 
 export function StreaksSection() {
   const { streakData, recordActivity, useFreeze: activateFreeze } = useStreaks();
@@ -27,90 +27,77 @@ export function StreaksSection() {
           {/* Explicação */}
           <div
             style={{
-              marginBottom: "24px",
-              padding: "16px",
-              backgroundColor: "#fef3c7",
-              border: "1px solid #fde68a",
-              borderRadius: "10px",
+              marginBottom: '24px',
+              padding: '16px',
+              backgroundColor: '#fef3c7',
+              border: '1px solid #fde68a',
+              borderRadius: '10px',
             }}
           >
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "8px",
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '8px',
               }}
             >
-              <span style={{ fontSize: "20px", marginRight: "8px" }}>💡</span>
-              <div
-                style={{ fontSize: "14px", fontWeight: 700, color: "#92400e" }}
-              >
+              <span style={{ fontSize: '20px', marginRight: '8px' }}>💡</span>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#92400e' }}>
                 How Streaks Work
               </div>
             </div>
-            <div
-              style={{ fontSize: "13px", color: "#92400e", lineHeight: "1.6" }}
-            >
-              <strong>Current Streak:</strong> Days/weeks/months in a row with
-              activity
+            <div style={{ fontSize: '13px', color: '#92400e', lineHeight: '1.6' }}>
+              <strong>Current Streak:</strong> Days/weeks/months in a row with activity
               <br />
               <strong>Longest Streak:</strong> Your best streak record
               <br />
               <strong>Freeze:</strong> Skip a day without breaking your streak
               <br />
-              <strong>Types:</strong> Daily (24h), Weekly (7d), Monthly
-              (calendar month)
+              <strong>Types:</strong> Daily (24h), Weekly (7d), Monthly (calendar month)
             </div>
           </div>
 
           {/* Streak Display */}
-          <div style={{ marginBottom: "24px" }}>
-            <StreakDisplay
-              showFreezes
-              showLongest
-              showWarning
-            />
+          <div style={{ marginBottom: '24px' }}>
+            <StreakDisplay showFreezes showLongest showWarning />
           </div>
 
           {/* Stats */}
           <div className="demo-stats">
             <div className="stat-box">
               <div className="stat-label">Current Streak</div>
-              <div className="stat-value" style={{ color: "#f97316" }}>
+              <div className="stat-value" style={{ color: '#f97316' }}>
                 🔥 {streakData.current}
               </div>
             </div>
             <div className="stat-box">
               <div className="stat-label">Longest Streak</div>
-              <div className="stat-value" style={{ color: "#eab308" }}>
+              <div className="stat-value" style={{ color: '#eab308' }}>
                 ⭐ {streakData.longest}
               </div>
             </div>
             <div className="stat-box">
               <div className="stat-label">Freezes Left</div>
-              <div className="stat-value" style={{ color: "#3b82f6" }}>
+              <div className="stat-value" style={{ color: '#3b82f6' }}>
                 ❄️ {streakData.freezes}
               </div>
             </div>
           </div>
 
           {/* Actions */}
-          <div style={{ marginBottom: "24px" }}>
+          <div style={{ marginBottom: '24px' }}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: '14px',
                 fontWeight: 600,
-                color: "#64748b",
-                marginBottom: "12px",
+                color: '#64748b',
+                marginBottom: '12px',
               }}
             >
               Quick Actions
             </div>
             <div className="demo-actions">
-              <button
-                onClick={handleRecordActivity}
-                className="action-button"
-              >
+              <button onClick={handleRecordActivity} className="action-button">
                 ✅ Record Activity Today
               </button>
               <button
@@ -124,46 +111,41 @@ export function StreaksSection() {
           </div>
 
           {/* Calendar */}
-          <div style={{ marginBottom: "24px" }}>
+          <div style={{ marginBottom: '24px' }}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: '14px',
                 fontWeight: 600,
-                color: "#64748b",
-                marginBottom: "12px",
+                color: '#64748b',
+                marginBottom: '12px',
               }}
             >
               Activity Calendar
             </div>
-            <StreakCalendar
-              month={currentMonth}
-              year={currentYear}
-            />
+            <StreakCalendar month={currentMonth} year={currentYear} />
           </div>
 
           {/* Info */}
           <div
             style={{
-              borderTop: "1px solid #e2e8f0",
-              paddingTop: "20px",
-              fontSize: "13px",
-              color: "#64748b",
+              borderTop: '1px solid #e2e8f0',
+              paddingTop: '20px',
+              fontSize: '13px',
+              color: '#64748b',
             }}
           >
-            <div style={{ marginBottom: "8px" }}>
-              <strong>Streak Type:</strong>{" "}
-              {streakData.type.charAt(0).toUpperCase() +
-                streakData.type.slice(1)}
+            <div style={{ marginBottom: '8px' }}>
+              <strong>Streak Type:</strong>{' '}
+              {streakData.type.charAt(0).toUpperCase() + streakData.type.slice(1)}
             </div>
-            <div style={{ marginBottom: "8px" }}>
-              <strong>Time Until Break:</strong>{" "}
-              {streakData.timeUntilBreak} periods
+            <div style={{ marginBottom: '8px' }}>
+              <strong>Time Until Break:</strong> {streakData.timeUntilBreak} periods
             </div>
             <div>
-              <strong>Last Activity:</strong>{" "}
+              <strong>Last Activity:</strong>{' '}
               {streakData.lastActivity
                 ? new Date(streakData.lastActivity).toLocaleDateString()
-                : "Never"}
+                : 'Never'}
             </div>
           </div>
         </div>
@@ -180,11 +162,7 @@ export function StreaksSection() {
   showWarning
 />`}</pre>
           <div className="code-preview">
-            <StreakDisplay
-              showFreezes
-              showLongest
-              showWarning
-            />
+            <StreakDisplay showFreezes showLongest showWarning />
           </div>
         </div>
 
@@ -195,10 +173,7 @@ export function StreaksSection() {
   year={new Date().getFullYear()}
 />`}</pre>
           <div className="code-preview">
-            <StreakCalendar
-              month={currentMonth}
-              year={currentYear}
-            />
+            <StreakCalendar month={currentMonth} year={currentYear} />
           </div>
         </div>
 

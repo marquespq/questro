@@ -1,42 +1,42 @@
-import { useState } from "react";
-import { PointsProvider } from "questro/points";
-import { BadgesProvider } from "questro/badges";
-import { QuestsProvider } from "questro/quests";
-import { LeaderboardProvider } from "questro/leaderboard";
-import { LevelsProvider } from "questro/levels";
-import { StreaksProvider } from "questro/streaks";
-import { NotificationsProvider } from "questro/notifications";
-import { Hero } from "./components/Hero";
-import { Features } from "./components/Features";
-import { Footer } from "./components/Footer";
-import { PointsSection } from "./components/PointsSection";
-import { BadgesSection } from "./components/BadgesSection";
-import { QuestsSection } from "./components/QuestsSection";
-import { LeaderboardSection } from "./components/LeaderboardSection";
-import { LevelsSection } from "./components/LevelsSection";
-import { StreaksSection } from "./components/StreaksSection";
-import { NotificationsSection } from "./components/NotificationsSection";
-import { StorageSection } from "./components/StorageSection";
-import { EventsSection } from "./components/EventsSection";
-import { IntegrationsSection } from "./components/IntegrationsSection";
-import { ShowcaseSection } from "./components/ShowcaseSection";
-import { userId, badges, quests, leaderboardEntries } from "./data/mockData";
-import "./styles/responsive.css";
+import { useState } from 'react';
+import { PointsProvider } from 'questro/points';
+import { BadgesProvider } from 'questro/badges';
+import { QuestsProvider } from 'questro/quests';
+import { LeaderboardProvider } from 'questro/leaderboard';
+import { LevelsProvider } from 'questro/levels';
+import { StreaksProvider } from 'questro/streaks';
+import { NotificationsProvider } from 'questro/notifications';
+import { Hero } from './components/Hero';
+import { Features } from './components/Features';
+import { Footer } from './components/Footer';
+import { PointsSection } from './components/PointsSection';
+import { BadgesSection } from './components/BadgesSection';
+import { QuestsSection } from './components/QuestsSection';
+import { LeaderboardSection } from './components/LeaderboardSection';
+import { LevelsSection } from './components/LevelsSection';
+import { StreaksSection } from './components/StreaksSection';
+import { NotificationsSection } from './components/NotificationsSection';
+import { StorageSection } from './components/StorageSection';
+import { EventsSection } from './components/EventsSection';
+import { IntegrationsSection } from './components/IntegrationsSection';
+import { ShowcaseSection } from './components/ShowcaseSection';
+import { userId, badges, quests, leaderboardEntries } from './data/mockData';
+import './styles/responsive.css';
 
 function ComponentsShowcase() {
   const [activeTab, setActiveTab] = useState<
-    | "points"
-    | "badges"
-    | "quests"
-    | "leaderboard"
-    | "levels"
-    | "streaks"
-    | "notifications"
-    | "storage"
-    | "events"
-    | "integrations"
-    | "showcase"
-  >("points");
+    | 'points'
+    | 'badges'
+    | 'quests'
+    | 'leaderboard'
+    | 'levels'
+    | 'streaks'
+    | 'notifications'
+    | 'storage'
+    | 'events'
+    | 'integrations'
+    | 'showcase'
+  >('points');
 
   return (
     <div className="app-container">
@@ -45,94 +45,89 @@ function ComponentsShowcase() {
 
       <section className="interactive">
         <h2 className="interactive-title">Interactive Components</h2>
-        <p className="interactive-subtitle">
-          Try all features live. No installation needed.
-        </p>
+        <p className="interactive-subtitle">Try all features live. No installation needed.</p>
 
-        <div
-          className="tabs"
-          style={{ overflowX: "auto", whiteSpace: "nowrap" }}
-        >
+        <div className="tabs" style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
           <button
-            className={activeTab === "points" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("points")}
+            className={activeTab === 'points' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('points')}
           >
             📊 Points
           </button>
           <button
-            className={activeTab === "badges" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("badges")}
+            className={activeTab === 'badges' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('badges')}
           >
             🏆 Badges
           </button>
           <button
-            className={activeTab === "quests" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("quests")}
+            className={activeTab === 'quests' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('quests')}
           >
             🎯 Quests
           </button>
           <button
-            className={activeTab === "leaderboard" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("leaderboard")}
+            className={activeTab === 'leaderboard' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('leaderboard')}
           >
             🏅 Leaderboard
           </button>
           <button
-            className={activeTab === "levels" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("levels")}
+            className={activeTab === 'levels' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('levels')}
           >
             ⬆️ Levels/XP
           </button>
           <button
-            className={activeTab === "streaks" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("streaks")}
+            className={activeTab === 'streaks' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('streaks')}
           >
             🔥 Streaks
           </button>
           <button
-            className={activeTab === "notifications" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("notifications")}
+            className={activeTab === 'notifications' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('notifications')}
           >
             🔔 Notifications
           </button>
           <button
-            className={activeTab === "storage" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("storage")}
+            className={activeTab === 'storage' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('storage')}
           >
             💾 Storage
           </button>
           <button
-            className={activeTab === "events" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("events")}
+            className={activeTab === 'events' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('events')}
           >
             ⚡ Events
           </button>
           <button
-            className={activeTab === "integrations" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("integrations")}
+            className={activeTab === 'integrations' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('integrations')}
           >
             🔌 Integrations
           </button>
           <button
-            className={activeTab === "showcase" ? "tab tab-active" : "tab"}
-            onClick={() => setActiveTab("showcase")}
+            className={activeTab === 'showcase' ? 'tab tab-active' : 'tab'}
+            onClick={() => setActiveTab('showcase')}
           >
             🌟 Showcase
           </button>
         </div>
 
         <div className="tab-content">
-          {activeTab === "points" && <PointsSection />}
-          {activeTab === "badges" && <BadgesSection />}
-          {activeTab === "quests" && <QuestsSection />}
-          {activeTab === "leaderboard" && <LeaderboardSection />}
-          {activeTab === "levels" && <LevelsSection />}
-          {activeTab === "streaks" && <StreaksSection />}
-          {activeTab === "notifications" && <NotificationsSection />}
-          {activeTab === "storage" && <StorageSection />}
-          {activeTab === "events" && <EventsSection />}
-          {activeTab === "integrations" && <IntegrationsSection />}
-          {activeTab === "showcase" && <ShowcaseSection />}
+          {activeTab === 'points' && <PointsSection />}
+          {activeTab === 'badges' && <BadgesSection />}
+          {activeTab === 'quests' && <QuestsSection />}
+          {activeTab === 'leaderboard' && <LeaderboardSection />}
+          {activeTab === 'levels' && <LevelsSection />}
+          {activeTab === 'streaks' && <StreaksSection />}
+          {activeTab === 'notifications' && <NotificationsSection />}
+          {activeTab === 'storage' && <StorageSection />}
+          {activeTab === 'events' && <EventsSection />}
+          {activeTab === 'integrations' && <IntegrationsSection />}
+          {activeTab === 'showcase' && <ShowcaseSection />}
         </div>
       </section>
 
@@ -145,13 +140,13 @@ export default function App() {
   return (
     <NotificationsProvider>
       <PointsProvider config={{ userId, initialBalance: 0 }}>
-        <LevelsProvider config={{ userId, formula: "linear", baseXP: 100 }}>
-          <StreaksProvider config={{ userId, type: "daily", maxFreezes: 3 }}>
+        <LevelsProvider config={{ userId, formula: 'linear', baseXP: 100 }}>
+          <StreaksProvider config={{ userId, type: 'daily', maxFreezes: 3 }}>
             <BadgesProvider config={{ userId, badges }}>
               <QuestsProvider quests={quests} config={{ maxActiveQuests: 5 }}>
                 <LeaderboardProvider
                   entries={leaderboardEntries}
-                  config={{ userId, metric: "points" }}
+                  config={{ userId, metric: 'points' }}
                 >
                   <ComponentsShowcase />
                 </LeaderboardProvider>

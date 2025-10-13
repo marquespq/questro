@@ -1,4 +1,4 @@
-import { useNotifications, NotificationContainer } from "questro/notifications";
+import { useNotifications, NotificationContainer } from 'questro/notifications';
 
 export function NotificationsSection() {
   const {
@@ -25,84 +25,75 @@ export function NotificationsSection() {
           {/* Explicação */}
           <div
             style={{
-              marginBottom: "24px",
-              padding: "16px",
-              backgroundColor: "#f0f9ff",
-              border: "1px solid #bfdbfe",
-              borderRadius: "10px",
+              marginBottom: '24px',
+              padding: '16px',
+              backgroundColor: '#f0f9ff',
+              border: '1px solid #bfdbfe',
+              borderRadius: '10px',
             }}
           >
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "8px",
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '8px',
               }}
             >
-              <span style={{ fontSize: "20px", marginRight: "8px" }}>💡</span>
-              <div
-                style={{ fontSize: "14px", fontWeight: 700, color: "#1e40af" }}
-              >
+              <span style={{ fontSize: '20px', marginRight: '8px' }}>💡</span>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#1e40af' }}>
                 How Notifications Work
               </div>
             </div>
-            <div
-              style={{ fontSize: "13px", color: "#1e40af", lineHeight: "1.6" }}
-            >
-              <strong>Toast Queue:</strong> Auto-dismissing notifications with
-              max queue limit
+            <div style={{ fontSize: '13px', color: '#1e40af', lineHeight: '1.6' }}>
+              <strong>Toast Queue:</strong> Auto-dismissing notifications with max queue limit
               <br />
-              <strong>Types:</strong> Success, Error, Info, Warning, Level Up,
-              Achievement
+              <strong>Types:</strong> Success, Error, Info, Warning, Level Up, Achievement
               <br />
-              <strong>Gamification:</strong> Pre-built shortcuts for level ups,
-              badges, quests, streaks
+              <strong>Gamification:</strong> Pre-built shortcuts for level ups, badges, quests,
+              streaks
               <br />
-              <strong>Positioning:</strong> 6 positions (top/bottom ×
-              left/center/right)
+              <strong>Positioning:</strong> 6 positions (top/bottom × left/center/right)
             </div>
           </div>
 
           {/* Basic Notifications */}
-          <div style={{ marginBottom: "24px" }}>
+          <div style={{ marginBottom: '24px' }}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: '14px',
                 fontWeight: 600,
-                color: "#64748b",
-                marginBottom: "12px",
+                color: '#64748b',
+                marginBottom: '12px',
               }}
             >
               Basic Notifications
             </div>
             <div className="demo-actions">
               <button
-                onClick={() =>
-                  success("Success!", "Operation completed successfully")
-                }
+                onClick={() => success('Success!', 'Operation completed successfully')}
                 className="action-button"
-                style={{ backgroundColor: "#10b981" }}
+                style={{ backgroundColor: '#10b981' }}
               >
                 ✅ Success
               </button>
               <button
-                onClick={() => error("Error!", "Something went wrong")}
+                onClick={() => error('Error!', 'Something went wrong')}
                 className="action-button"
-                style={{ backgroundColor: "#ef4444" }}
+                style={{ backgroundColor: '#ef4444' }}
               >
                 ❌ Error
               </button>
               <button
-                onClick={() => info("Info", "Here's some information")}
+                onClick={() => info('Info', "Here's some information")}
                 className="action-button"
-                style={{ backgroundColor: "#3b82f6" }}
+                style={{ backgroundColor: '#3b82f6' }}
               >
                 ℹ️ Info
               </button>
               <button
-                onClick={() => warning("Warning!", "Please be careful")}
+                onClick={() => warning('Warning!', 'Please be careful')}
                 className="action-button"
-                style={{ backgroundColor: "#f59e0b" }}
+                style={{ backgroundColor: '#f59e0b' }}
               >
                 ⚠️ Warning
               </button>
@@ -110,13 +101,13 @@ export function NotificationsSection() {
           </div>
 
           {/* Gamification Shortcuts */}
-          <div style={{ marginBottom: "24px" }}>
+          <div style={{ marginBottom: '24px' }}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: '14px',
                 fontWeight: 600,
-                color: "#64748b",
-                marginBottom: "12px",
+                color: '#64748b',
+                marginBottom: '12px',
               }}
             >
               Gamification Shortcuts
@@ -126,43 +117,36 @@ export function NotificationsSection() {
                 onClick={() => levelUp(10)}
                 className="action-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #fbbf24 0%, #f97316 100%)",
+                  background: 'linear-gradient(135deg, #fbbf24 0%, #f97316 100%)',
                 }}
               >
                 🎉 Level Up (10)
               </button>
               <button
-                onClick={() => badgeUnlocked("Master Coder")}
+                onClick={() => badgeUnlocked('Master Coder')}
                 className="action-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
+                  background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
                 }}
               >
                 🏆 Badge Unlocked
               </button>
               <button
-                onClick={() => questCompleted("Daily Tasks", 100)}
+                onClick={() => questCompleted('Daily Tasks', 100)}
                 className="action-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
                 }}
               >
                 🎯 Quest Complete
               </button>
             </div>
-            <div
-              className="demo-actions"
-              style={{ marginTop: "12px" }}
-            >
+            <div className="demo-actions" style={{ marginTop: '12px' }}>
               <button
                 onClick={() => streakMilestone(7)}
                 className="action-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #f97316 0%, #eab308 100%)",
+                  background: 'linear-gradient(135deg, #f97316 0%, #eab308 100%)',
                 }}
               >
                 🔥 7-Day Streak
@@ -170,7 +154,7 @@ export function NotificationsSection() {
               <button
                 onClick={() => streakWarning(2)}
                 className="action-button"
-                style={{ backgroundColor: "#f59e0b" }}
+                style={{ backgroundColor: '#f59e0b' }}
               >
                 ⚠️ Streak Warning (2h)
               </button>
@@ -178,30 +162,26 @@ export function NotificationsSection() {
           </div>
 
           {/* Advanced Options */}
-          <div style={{ marginBottom: "24px" }}>
+          <div style={{ marginBottom: '24px' }}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: '14px',
                 fontWeight: 600,
-                color: "#64748b",
-                marginBottom: "12px",
+                color: '#64748b',
+                marginBottom: '12px',
               }}
             >
               Advanced Options
             </div>
             <div className="demo-actions">
               <button
-                onClick={() =>
-                  info("Tip", "Use the show() method for full control", "💡")
-                }
+                onClick={() => info('Tip', 'Use the show() method for full control', '💡')}
                 className="action-button"
               >
                 � Custom Icon
               </button>
               <button
-                onClick={() =>
-                  success("Multiple", "Try clicking all buttons quickly!")
-                }
+                onClick={() => success('Multiple', 'Try clicking all buttons quickly!')}
                 className="action-button"
               >
                 � Queue Test
@@ -212,22 +192,20 @@ export function NotificationsSection() {
           {/* Info */}
           <div
             style={{
-              borderTop: "1px solid #e2e8f0",
-              paddingTop: "20px",
-              fontSize: "13px",
-              color: "#64748b",
+              borderTop: '1px solid #e2e8f0',
+              paddingTop: '20px',
+              fontSize: '13px',
+              color: '#64748b',
             }}
           >
-            <div style={{ marginBottom: "8px" }}>
-              <strong>Tip:</strong> Notifications appear at the top-right by
-              default
+            <div style={{ marginBottom: '8px' }}>
+              <strong>Tip:</strong> Notifications appear at the top-right by default
             </div>
-            <div style={{ marginBottom: "8px" }}>
+            <div style={{ marginBottom: '8px' }}>
               <strong>Max Queue:</strong> 5 notifications at once (configurable)
             </div>
             <div>
-              <strong>Auto-dismiss:</strong> 3 seconds by default (configurable
-              per notification)
+              <strong>Auto-dismiss:</strong> 3 seconds by default (configurable per notification)
             </div>
           </div>
         </div>
