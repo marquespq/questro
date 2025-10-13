@@ -1,7 +1,7 @@
 import { useStreaks, StreakDisplay, StreakCalendar } from 'questro/streaks';
 
 export function StreaksSection() {
-  const { streakData, recordActivity, useFreeze: activateFreeze } = useStreaks();
+  const { streakData, recordActivity, useFreeze: activateFreeze, reset } = useStreaks();
 
   const handleRecordActivity = () => {
     recordActivity();
@@ -9,6 +9,12 @@ export function StreaksSection() {
 
   const handleUseFreeze = () => {
     activateFreeze();
+  };
+
+  const handleReset = () => {
+    if (confirm('Reset streak? This will clear all progress.')) {
+      reset();
+    }
   };
 
   const now = new Date();
@@ -54,6 +60,8 @@ export function StreaksSection() {
               <strong>Freeze:</strong> Skip a day without breaking your streak
               <br />
               <strong>Types:</strong> Daily (24h), Weekly (7d), Monthly (calendar month)
+              <br />
+              <strong>⚠️ Demo Note:</strong> Can only record once per day (like real apps!)
             </div>
           </div>
 
@@ -97,7 +105,12 @@ export function StreaksSection() {
               Quick Actions
             </div>
             <div className="demo-actions">
-              <button onClick={handleRecordActivity} className="action-button">
+              <button 
+                onClick={handleRecordActivity} 
+                className="action-button"
+                disabled={streakData.isActive}
+                title={streakData.isActive ? 'Already recorded today!' : 'Record activity'}
+              >
                 ✅ Record Activity Today
               </button>
               <button
@@ -107,7 +120,30 @@ export function StreaksSection() {
               >
                 ❄️ Use Freeze ({streakData.freezes} left)
               </button>
+              <button
+                onClick={handleReset}
+                className="action-button-danger"
+                style={{ marginLeft: 'auto' }}
+              >
+                🔄 Reset Demo
+              </button>
             </div>
+            {streakData.isActive && (
+              <div
+                style={{
+                  marginTop: '12px',
+                  padding: '12px',
+                  backgroundColor: '#d1fae5',
+                  border: '1px solid #6ee7b7',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  color: '#065f46',
+                }}
+              >
+                ✅ <strong>Activity recorded for today!</strong> Come back tomorrow to continue your
+                streak.
+              </div>
+            )}
           </div>
 
           {/* Calendar */}
