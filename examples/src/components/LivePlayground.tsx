@@ -3,9 +3,11 @@ import { usePoints } from 'questro/points';
 import { useBadges } from 'questro/badges';
 import { useQuests } from 'questro/quests';
 import { useNotifications } from 'questro/notifications';
+import { useLevels } from 'questro/levels';
+import { useLeaderboard } from 'questro/leaderboard';
 import { badges } from '../data/mockData';
 
-type TabType = 'points' | 'quests' | 'badges';
+type TabType = 'points' | 'quests' | 'badges' | 'levels' | 'leaderboard';
 
 export function LivePlayground() {
   const { balance, addPoints } = usePoints();
@@ -19,6 +21,8 @@ export function LivePlayground() {
     updateProgress: updateQuestProgress,
   } = useQuests();
   const { show } = useNotifications();
+  const { levelData, addXP, levelHistory } = useLevels();
+  const { entries, updateScore } = useLeaderboard();
   const [clickCount, setClickCount] = useState(0);
   const [activeTab, setActiveTab] = useState<TabType>('points');
 
@@ -238,6 +242,43 @@ export function LivePlayground() {
         >
           🏆 Badges
         </button>
+        <button
+          onClick={() => setActiveTab('levels')}
+          style={{
+            padding: '12px 24px',
+            fontSize: '14px',
+            fontWeight: 600,
+            background: activeTab === 'levels' ? '#6366f1' : 'transparent',
+            color: activeTab === 'levels' ? '#fff' : '#64748b',
+            border: 'none',
+            borderRadius: '8px 8px 0 0',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            borderBottom: activeTab === 'levels' ? '2px solid #6366f1' : '2px solid transparent',
+            marginBottom: '-2px',
+          }}
+        >
+          ⭐ Levels
+        </button>
+        <button
+          onClick={() => setActiveTab('leaderboard')}
+          style={{
+            padding: '12px 24px',
+            fontSize: '14px',
+            fontWeight: 600,
+            background: activeTab === 'leaderboard' ? '#6366f1' : 'transparent',
+            color: activeTab === 'leaderboard' ? '#fff' : '#64748b',
+            border: 'none',
+            borderRadius: '8px 8px 0 0',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            borderBottom:
+              activeTab === 'leaderboard' ? '2px solid #6366f1' : '2px solid transparent',
+            marginBottom: '-2px',
+          }}
+        >
+          🥇 Leaderboard
+        </button>
       </div>
 
       {/* Points Tab */}
@@ -386,7 +427,13 @@ function MyComponent() {
                     boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'start', marginBottom: '12px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'start',
+                      marginBottom: '12px',
+                    }}
+                  >
                     <span style={{ fontSize: '32px', marginRight: '12px' }}>{quest.icon}</span>
                     <div style={{ flex: 1 }}>
                       <div
@@ -446,7 +493,13 @@ function MyComponent() {
                     boxShadow: '0 4px 6px rgba(99,102,241,0.1)',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'start', marginBottom: '12px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'start',
+                      marginBottom: '12px',
+                    }}
+                  >
                     <span style={{ fontSize: '32px', marginRight: '12px' }}>{quest.icon}</span>
                     <div style={{ flex: 1 }}>
                       <div
@@ -459,7 +512,13 @@ function MyComponent() {
                       >
                         {quest.title}
                       </div>
-                      <div style={{ fontSize: '13px', color: '#64748b', marginBottom: '12px' }}>
+                      <div
+                        style={{
+                          fontSize: '13px',
+                          color: '#64748b',
+                          marginBottom: '12px',
+                        }}
+                      >
                         {quest.description}
                       </div>
                       {quest.objectives.map((obj) => (
@@ -589,7 +648,13 @@ function MyComponent() {
                     >
                       <span style={{ fontSize: '24px', marginRight: '12px' }}>{quest.icon}</span>
                       <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: '14px', fontWeight: 600, color: '#15803d' }}>
+                        <div
+                          style={{
+                            fontSize: '14px',
+                            fontWeight: 600,
+                            color: '#15803d',
+                          }}
+                        >
                           {quest.title}
                         </div>
                         <div style={{ fontSize: '12px', color: '#16a34a' }}>
@@ -704,11 +769,23 @@ function QuestTracker() {
                 }}
               >
                 <span style={{ fontSize: '20px', marginRight: '8px' }}>🎯</span>
-                <div style={{ fontSize: '14px', fontWeight: 700, color: '#1e40af' }}>
+                <div
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    color: '#1e40af',
+                  }}
+                >
                   How to Unlock Badges
                 </div>
               </div>
-              <div style={{ fontSize: '13px', color: '#1e40af', lineHeight: '1.8' }}>
+              <div
+                style={{
+                  fontSize: '13px',
+                  color: '#1e40af',
+                  lineHeight: '1.8',
+                }}
+              >
                 <strong>🎯 Getting Started:</strong> Complete your first action (1 click)
                 <br />
                 <strong>⭐ Rising Star:</strong> Earn 100 points total
@@ -750,7 +827,13 @@ function QuestTracker() {
                   >
                     {badge.name}
                   </div>
-                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '8px' }}>
+                  <div
+                    style={{
+                      fontSize: '11px',
+                      color: '#64748b',
+                      marginBottom: '8px',
+                    }}
+                  >
                     {badge.description}
                   </div>
                   <div
@@ -837,6 +920,630 @@ function BadgeTracker() {
                 </li>
                 <li>
                   <strong>Progress Tracking:</strong> Track multiple conditions per badge
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Levels Tab - Level Up Animation */}
+      {activeTab === 'levels' && (
+        <div className="playground-container">
+          <div className="playground-left">
+            <div className="playground-display">
+              <div className="playground-stat">
+                <div className="playground-stat-label">Current Level</div>
+                <div
+                  className="playground-stat-value"
+                  style={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  {levelData.level}
+                </div>
+                <div className="playground-stat-unit">level</div>
+              </div>
+              <div className="playground-stat">
+                <div className="playground-stat-label">Current XP</div>
+                <div className="playground-stat-value">{levelData.currentXP}</div>
+                <div className="playground-stat-unit">xp</div>
+              </div>
+              <div className="playground-stat">
+                <div className="playground-stat-label">Next Level</div>
+                <div className="playground-stat-value">{levelData.xpToLevelUp}</div>
+                <div className="playground-stat-unit">xp needed</div>
+              </div>
+            </div>
+
+            {/* XP Progress Bar with Animation */}
+            <div style={{ marginBottom: '24px' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '8px',
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    color: '#64748b',
+                  }}
+                >
+                  Level {levelData.level} Progress
+                </span>
+                <span
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    color: '#6366f1',
+                  }}
+                >
+                  {Math.round(levelData.progress)}%
+                </span>
+              </div>
+              <div
+                style={{
+                  height: '24px',
+                  backgroundColor: '#e0e7ff',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.1)',
+                }}
+              >
+                <div
+                  style={{
+                    height: '100%',
+                    width: `${levelData.progress}%`,
+                    background: 'linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%)',
+                    transition: 'width 0.5s ease-out',
+                    boxShadow: '0 0 10px rgba(99, 102, 241, 0.5)',
+                    position: 'relative',
+                  }}
+                >
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background:
+                        'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                      animation: 'shimmer 2s infinite',
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Level Up History with Animation */}
+            {levelHistory.length > 0 && (
+              <div
+                style={{
+                  padding: '20px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '12px',
+                  color: '#fff',
+                  marginBottom: '24px',
+                  animation: 'slideInUp 0.5s ease-out',
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: '32px',
+                    textAlign: 'center',
+                    marginBottom: '12px',
+                  }}
+                >
+                  🎉
+                </div>
+                <div
+                  style={{
+                    fontSize: '18px',
+                    fontWeight: 700,
+                    textAlign: 'center',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Recent Level Ups
+                </div>
+                {levelHistory
+                  .slice(-3)
+                  .reverse()
+                  .map((event, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        padding: '12px',
+                        backgroundColor: 'rgba(255,255,255,0.2)',
+                        borderRadius: '8px',
+                        marginBottom: '8px',
+                        backdropFilter: 'blur(10px)',
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <span style={{ fontSize: '14px', fontWeight: 600 }}>
+                          Level {event.previousLevel} → {event.newLevel}
+                        </span>
+                        <span style={{ fontSize: '12px', opacity: 0.9 }}>
+                          Total: {event.totalXP} XP
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            )}
+
+            {/* XP Action Buttons */}
+            <div className="playground-actions">
+              <button
+                className="playground-button primary"
+                onClick={() => {
+                  addXP(50, 'Demo action');
+                  show({
+                    title: 'XP Gained!',
+                    message: '+50 XP earned!',
+                    type: 'success',
+                  });
+                }}
+              >
+                <span className="button-icon">⚡</span>
+                <span className="button-text">
+                  <strong>Gain 50 XP</strong>
+                  <small>Quick boost</small>
+                </span>
+              </button>
+              <button
+                className="playground-button secondary"
+                onClick={() => {
+                  addXP(200, 'Big achievement');
+                  show({
+                    title: 'Big Win!',
+                    message: '+200 XP! 🎉',
+                    type: 'success',
+                  });
+                }}
+              >
+                <span className="button-icon">💫</span>
+                <span className="button-text">
+                  <strong>Gain 200 XP</strong>
+                  <small>Major achievement</small>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div className="playground-right">
+            <div className="playground-code-section">
+              <h3 className="playground-code-title">Levels Implementation</h3>
+              <pre className="playground-code">
+                <code>{`import { useLevels } from 'questro/levels';
+
+function LevelTracker() {
+  const { levelData, addXP } = useLevels();
+
+  const handleAction = () => {
+    // Add XP for action
+    addXP(50, 'Task completed');
+  };
+
+  return (
+    <div>
+      <h3>Level {levelData.level}</h3>
+      <ProgressBar 
+        current={levelData.currentXP}
+        max={levelData.xpToNextLevel}
+      />
+      <p>Total XP: {levelData.totalXP}</p>
+    </div>
+  );
+}`}</code>
+              </pre>
+            </div>
+
+            <div className="playground-info">
+              <h4>💡 Level System</h4>
+              <ul>
+                <li>
+                  <strong>XP Tracking:</strong> Earn XP through actions and activities
+                </li>
+                <li>
+                  <strong>Auto Level Up:</strong> Automatically level up when XP threshold reached
+                </li>
+                <li>
+                  <strong>Progress Bar:</strong> Visual feedback with animated XP bar
+                </li>
+                <li>
+                  <strong>Level History:</strong> Track all level up events
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Leaderboard Tab - Podium Display */}
+      {activeTab === 'leaderboard' && (
+        <div className="playground-container">
+          <div className="playground-left">
+            {/* Podium Display */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                gap: '16px',
+                marginBottom: '32px',
+                padding: '40px 20px',
+              }}
+            >
+              {/* 2nd Place */}
+              {entries[1] && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    animation: 'slideInUp 0.5s ease-out 0.2s both',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #94a3b8 0%, #cbd5e1 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '32px',
+                      marginBottom: '12px',
+                      boxShadow: '0 4px 12px rgba(148,163,184,0.4)',
+                    }}
+                  >
+                    🥈
+                  </div>
+                  <div
+                    style={{
+                      width: '120px',
+                      padding: '20px 16px',
+                      background: 'linear-gradient(135deg, #94a3b8 0%, #cbd5e1 100%)',
+                      borderRadius: '12px 12px 0 0',
+                      textAlign: 'center',
+                      color: '#fff',
+                      height: '140px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: '18px',
+                        fontWeight: 700,
+                        marginBottom: '8px',
+                      }}
+                    >
+                      {entries[1].username}
+                    </div>
+                    <div style={{ fontSize: '24px', fontWeight: 700 }}>{entries[1].score}</div>
+                    <div style={{ fontSize: '12px', opacity: 0.9 }}>points</div>
+                  </div>
+                </div>
+              )}
+
+              {/* 1st Place */}
+              {entries[0] && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    animation: 'slideInUp 0.5s ease-out both',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100px',
+                      height: '100px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '40px',
+                      marginBottom: '12px',
+                      boxShadow: '0 8px 20px rgba(251,191,36,0.6)',
+                      animation: 'pulse 2s infinite',
+                    }}
+                  >
+                    🏆
+                  </div>
+                  <div
+                    style={{
+                      width: '140px',
+                      padding: '24px 16px',
+                      background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                      borderRadius: '12px 12px 0 0',
+                      textAlign: 'center',
+                      color: '#fff',
+                      height: '180px',
+                      boxShadow: '0 4px 20px rgba(251,191,36,0.4)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: '20px',
+                        fontWeight: 700,
+                        marginBottom: '8px',
+                      }}
+                    >
+                      {entries[0].username}
+                    </div>
+                    <div style={{ fontSize: '32px', fontWeight: 700 }}>{entries[0].score}</div>
+                    <div style={{ fontSize: '14px', opacity: 0.9 }}>points</div>
+                  </div>
+                </div>
+              )}
+
+              {/* 3rd Place */}
+              {entries[2] && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    animation: 'slideInUp 0.5s ease-out 0.4s both',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '70px',
+                      height: '70px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '28px',
+                      marginBottom: '12px',
+                      boxShadow: '0 4px 12px rgba(251,146,60,0.4)',
+                    }}
+                  >
+                    🥉
+                  </div>
+                  <div
+                    style={{
+                      width: '110px',
+                      padding: '16px',
+                      background: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
+                      borderRadius: '12px 12px 0 0',
+                      textAlign: 'center',
+                      color: '#fff',
+                      height: '120px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: '16px',
+                        fontWeight: 700,
+                        marginBottom: '8px',
+                      }}
+                    >
+                      {entries[2].username}
+                    </div>
+                    <div style={{ fontSize: '20px', fontWeight: 700 }}>{entries[2].score}</div>
+                    <div style={{ fontSize: '11px', opacity: 0.9 }}>points</div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Rest of Leaderboard */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {entries.slice(3).map((entry, idx) => (
+                <div
+                  key={entry.userId}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '16px',
+                    backgroundColor: entry.userId === 'demo-user' ? '#eff6ff' : '#fff',
+                    border:
+                      entry.userId === 'demo-user' ? '2px solid #3b82f6' : '1px solid #e2e8f0',
+                    borderRadius: '10px',
+                    animation: `slideInRight 0.3s ease-out ${idx * 0.1}s both`,
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      backgroundColor: '#f1f5f9',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: 700,
+                      fontSize: '14px',
+                      color: '#64748b',
+                      marginRight: '16px',
+                    }}
+                  >
+                    #{idx + 4}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: '#0f172a',
+                      }}
+                    >
+                      {entry.username}
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '16px',
+                      fontWeight: 700,
+                      color: '#6366f1',
+                    }}
+                  >
+                    {entry.score}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Point Actions */}
+            <div
+              style={{
+                marginTop: '24px',
+                padding: '16px',
+                background: 'rgba(255, 107, 107, 0.05)',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 107, 107, 0.1)',
+              }}
+            >
+              <h4
+                style={{
+                  margin: '0 0 12px 0',
+                  fontSize: '14px',
+                  color: '#64748b',
+                }}
+              >
+                Quick Actions
+              </h4>
+              <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+                <button
+                  className="playground-button"
+                  onClick={() => {
+                    addPoints(10, {
+                      action: 'quick-action',
+                      description: 'Quick points',
+                    });
+                    show({
+                      title: '+10 Points',
+                      message: 'Points added successfully!',
+                      type: 'success',
+                    });
+                  }}
+                  style={{ flex: 1 }}
+                >
+                  +10
+                </button>
+                <button
+                  className="playground-button"
+                  onClick={() => {
+                    addPoints(50, {
+                      action: 'quick-action',
+                      description: 'Quick points',
+                    });
+                    show({
+                      title: '+50 Points',
+                      message: 'Points added successfully!',
+                      type: 'success',
+                    });
+                  }}
+                  style={{ flex: 1 }}
+                >
+                  +50
+                </button>
+                <button
+                  className="playground-button"
+                  onClick={() => {
+                    addPoints(100, {
+                      action: 'quick-action',
+                      description: 'Quick points',
+                    });
+                    show({
+                      title: '+100 Points',
+                      message: 'Points added successfully!',
+                      type: 'success',
+                    });
+                  }}
+                  style={{ flex: 1 }}
+                >
+                  +100
+                </button>
+              </div>
+            </div>
+
+            {/* Update Score Button */}
+            <div style={{ marginTop: '12px' }}>
+              <button
+                className="playground-button primary"
+                onClick={() => {
+                  // Sync leaderboard score with current points balance
+                  console.log('Current balance:', balance);
+                  updateScore('demo-user', balance, 'You');
+                  show({
+                    title: 'Score Synced!',
+                    message: `Leaderboard updated with ${balance} points!`,
+                    type: 'success',
+                  });
+                }}
+                style={{ width: '100%' }}
+              >
+                <span className="button-icon">🔄</span>
+                <span className="button-text">
+                  <strong>Sync Score with Points</strong>
+                  <small>Current: {balance} points</small>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div className="playground-right">
+            <div className="playground-code-section">
+              <h3 className="playground-code-title">Leaderboard Implementation</h3>
+              <pre className="playground-code">
+                <code>{`import { useLeaderboard } from 'questro/leaderboard';
+
+function LeaderboardView() {
+  const { entries, updateScore } = useLeaderboard();
+
+  const handleScoreUpdate = (userId, score) => {
+    updateScore(userId, score);
+  };
+
+  return (
+    <div>
+      {entries.map((entry, idx) => (
+        <div key={entry.userId}>
+          <span>#{idx + 1}</span>
+          <span>{entry.username}</span>
+          <span>{entry.score}</span>
+        </div>
+      ))}
+    </div>
+  );
+}`}</code>
+              </pre>
+            </div>
+
+            <div className="playground-info">
+              <h4>💡 Leaderboard System</h4>
+              <ul>
+                <li>
+                  <strong>Podium Display:</strong> Top 3 players with visual medals
+                </li>
+                <li>
+                  <strong>Auto Ranking:</strong> Scores automatically sorted
+                </li>
+                <li>
+                  <strong>Highlight User:</strong> Current user highlighted in blue
+                </li>
+                <li>
+                  <strong>Real-time Updates:</strong> Scores update instantly
                 </li>
               </ul>
             </div>
