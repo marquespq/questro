@@ -1,3 +1,5 @@
+import { QUESTRO_VERSION } from "../utils/version";
+
 export function Footer() {
   return (
     <footer className="footer">
@@ -16,7 +18,7 @@ export function Footer() {
           >
             GitHub
           </a>
-          <span className="footer-version">v0.2.2</span>
+          <span className="footer-version">v{QUESTRO_VERSION}</span>
         </div>
       </div>
     </footer>

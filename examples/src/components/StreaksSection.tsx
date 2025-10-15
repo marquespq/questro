@@ -1,7 +1,12 @@
-import { useStreaks, StreakDisplay, StreakCalendar } from 'questro/streaks';
+import { useStreaks, StreakDisplay, StreakCalendar } from "questro/streaks";
 
 export function StreaksSection() {
-  const { streakData, recordActivity, useFreeze: activateFreeze, reset } = useStreaks();
+  const {
+    streakData,
+    recordActivity,
+    useFreeze: activateFreeze,
+    reset,
+  } = useStreaks();
 
   const handleRecordActivity = () => {
     recordActivity();
@@ -12,51 +17,8 @@ export function StreaksSection() {
   };
 
   const handleReset = () => {
-    if (confirm('Reset streak? This will clear all progress.')) {
+    if (confirm("Reset streak? This will clear all progress.")) {
       reset();
-    }
-  };
-
-  // DEMO: Simulate recording activity for past days
-  const handleSimulatePastDays = (daysAgo: number) => {
-    // Get current state from localStorage
-    const storageKey = 'questro_streaks_demo-user_daily';
-    const savedState = localStorage.getItem(storageKey);
-    
-    if (savedState) {
-      const state = JSON.parse(savedState);
-      
-      // Add entries for past days
-      const today = new Date();
-      for (let i = daysAgo; i >= 1; i--) {
-        const pastDate = new Date(today);
-        pastDate.setDate(today.getDate() - i);
-        const dateStr = pastDate.toISOString().split('T')[0]; // YYYY-MM-DD
-        
-        // Check if entry already exists
-        const exists = state.history?.some((entry: { date: string }) => entry.date === dateStr);
-        if (!exists) {
-          state.history = state.history || [];
-          state.history.push({
-            date: dateStr,
-            completed: true,
-            timestamp: pastDate.getTime(),
-            freezeUsed: false,
-          });
-        }
-      }
-      
-      // Update streak count
-      state.current = (state.current || 0) + daysAgo;
-      state.longest = Math.max(state.longest || 0, state.current);
-      state.lastActivity = Date.now();
-      state.lastUpdated = Date.now();
-      
-      // Save back to localStorage
-      localStorage.setItem(storageKey, JSON.stringify(state));
-      
-      // Force reload to update UI
-      window.location.reload();
     }
   };
 
@@ -76,40 +38,49 @@ export function StreaksSection() {
           {/* Explicação */}
           <div
             style={{
-              marginBottom: '24px',
-              padding: '16px',
-              backgroundColor: '#fef3c7',
-              border: '1px solid #fde68a',
-              borderRadius: '10px',
+              marginBottom: "24px",
+              padding: "16px",
+              backgroundColor: "#fef3c7",
+              border: "1px solid #fde68a",
+              borderRadius: "10px",
             }}
           >
             <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '8px',
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "8px",
               }}
             >
-              <span style={{ fontSize: '20px', marginRight: '8px' }}>💡</span>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: '#92400e' }}>
+              <span style={{ fontSize: "20px", marginRight: "8px" }}>💡</span>
+              <div
+                style={{ fontSize: "14px", fontWeight: 700, color: "#92400e" }}
+              >
                 How Streaks Work
               </div>
             </div>
-            <div style={{ fontSize: '13px', color: '#92400e', lineHeight: '1.6' }}>
-              <strong>Current Streak:</strong> Days/weeks/months in a row with activity
+            <div
+              style={{ fontSize: "13px", color: "#92400e", lineHeight: "1.6" }}
+            >
+              <strong>Current Streak:</strong> Consecutive days with activity
               <br />
-              <strong>Longest Streak:</strong> Your best streak record
+              <strong>Longest Streak:</strong> Your best record ever
               <br />
               <strong>Freeze:</strong> Skip a day without breaking your streak
+              (3 available)
               <br />
-              <strong>Types:</strong> Daily (24h), Weekly (7d), Monthly (calendar month)
               <br />
-              <strong>⚠️ Demo Note:</strong> Can only record once per day (like real apps!)
+              <strong>📅 Calendar Legend:</strong>
+              <br />
+              🟢 <strong>Completed</strong> = Activity done | �{" "}
+              <strong>Freeze</strong> = Day protected | 🔴{" "}
+              <strong>Missed</strong> = Broke the streak | ⚪{" "}
+              <strong>Empty</strong> = No activity yet
             </div>
           </div>
 
           {/* Streak Display */}
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: "24px" }}>
             <StreakDisplay showFreezes showLongest showWarning />
           </div>
 
@@ -117,32 +88,32 @@ export function StreaksSection() {
           <div className="demo-stats">
             <div className="stat-box">
               <div className="stat-label">Current Streak</div>
-              <div className="stat-value" style={{ color: '#f97316' }}>
+              <div className="stat-value" style={{ color: "#f97316" }}>
                 🔥 {streakData.current}
               </div>
             </div>
             <div className="stat-box">
               <div className="stat-label">Longest Streak</div>
-              <div className="stat-value" style={{ color: '#eab308' }}>
+              <div className="stat-value" style={{ color: "#eab308" }}>
                 ⭐ {streakData.longest}
               </div>
             </div>
             <div className="stat-box">
               <div className="stat-label">Freezes Left</div>
-              <div className="stat-value" style={{ color: '#3b82f6' }}>
+              <div className="stat-value" style={{ color: "#3b82f6" }}>
                 ❄️ {streakData.freezes}
               </div>
             </div>
           </div>
 
           {/* Actions */}
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: "24px" }}>
             <div
               style={{
-                fontSize: '14px',
+                fontSize: "14px",
                 fontWeight: 600,
-                color: '#64748b',
-                marginBottom: '12px',
+                color: "#64748b",
+                marginBottom: "12px",
               }}
             >
               Quick Actions
@@ -152,7 +123,11 @@ export function StreaksSection() {
                 onClick={handleRecordActivity}
                 className="action-button"
                 disabled={streakData.isActive}
-                title={streakData.isActive ? 'Already recorded today!' : 'Record activity'}
+                title={
+                  streakData.isActive
+                    ? "Already recorded today!"
+                    : "Record activity"
+                }
               >
                 ✅ Record Activity Today
               </button>
@@ -166,7 +141,7 @@ export function StreaksSection() {
               <button
                 onClick={handleReset}
                 className="action-button-danger"
-                style={{ marginLeft: 'auto' }}
+                style={{ marginLeft: "auto" }}
               >
                 🔄 Reset Demo
               </button>
@@ -174,83 +149,29 @@ export function StreaksSection() {
             {streakData.isActive && (
               <div
                 style={{
-                  marginTop: '12px',
-                  padding: '12px',
-                  backgroundColor: '#d1fae5',
-                  border: '1px solid #6ee7b7',
-                  borderRadius: '8px',
-                  fontSize: '13px',
-                  color: '#065f46',
+                  marginTop: "12px",
+                  padding: "12px",
+                  backgroundColor: "#d1fae5",
+                  border: "1px solid #6ee7b7",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  color: "#065f46",
                 }}
               >
-                ✅ <strong>Activity recorded for today!</strong> Come back tomorrow to continue your
-                streak.
+                ✅ <strong>Activity recorded for today!</strong> Come back
+                tomorrow to continue your streak.
               </div>
             )}
           </div>
 
-          {/* Demo: Simulate Past Days */}
-          <div style={{ marginBottom: '24px' }}>
-            <div
-              style={{
-                fontSize: '14px',
-                fontWeight: 600,
-                color: '#64748b',
-                marginBottom: '12px',
-              }}
-            >
-              🎮 Demo: Simulate Past Activity
-            </div>
-            <div
-              style={{
-                marginBottom: '12px',
-                padding: '12px',
-                backgroundColor: '#f1f5f9',
-                border: '1px solid #cbd5e1',
-                borderRadius: '8px',
-                fontSize: '12px',
-                color: '#475569',
-              }}
-            >
-              💡 In real apps, you can only record once per day. These buttons simulate completing
-              activities on past days for demo purposes.
-            </div>
-            <div className="demo-actions">
-              <button
-                onClick={() => handleSimulatePastDays(3)}
-                className="action-button-secondary"
-              >
-                📅 +3 Days Ago
-              </button>
-              <button
-                onClick={() => handleSimulatePastDays(7)}
-                className="action-button-secondary"
-              >
-                📅 +7 Days Ago
-              </button>
-              <button
-                onClick={() => handleSimulatePastDays(14)}
-                className="action-button-secondary"
-              >
-                📅 +14 Days Ago
-              </button>
-              <button
-                onClick={() => handleSimulatePastDays(30)}
-                className="action-button-secondary"
-              >
-                📅 +30 Days Ago
-              </button>
-            </div>
-          </div>
-
           {/* Calendar */}
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: "24px" }}>
             <div
               style={{
-                fontSize: '14px',
+                fontSize: "14px",
                 fontWeight: 600,
-                color: '#64748b',
-                marginBottom: '12px',
+                color: "#64748b",
+                marginBottom: "12px",
               }}
             >
               Activity Calendar
@@ -261,24 +182,26 @@ export function StreaksSection() {
           {/* Info */}
           <div
             style={{
-              borderTop: '1px solid #e2e8f0',
-              paddingTop: '20px',
-              fontSize: '13px',
-              color: '#64748b',
+              borderTop: "1px solid #e2e8f0",
+              paddingTop: "20px",
+              fontSize: "13px",
+              color: "#64748b",
             }}
           >
-            <div style={{ marginBottom: '8px' }}>
-              <strong>Streak Type:</strong>{' '}
-              {streakData.type.charAt(0).toUpperCase() + streakData.type.slice(1)}
+            <div style={{ marginBottom: "8px" }}>
+              <strong>Streak Type:</strong>{" "}
+              {streakData.type.charAt(0).toUpperCase() +
+                streakData.type.slice(1)}
             </div>
-            <div style={{ marginBottom: '8px' }}>
-              <strong>Time Until Break:</strong> {streakData.timeUntilBreak} periods
+            <div style={{ marginBottom: "8px" }}>
+              <strong>Time Until Break:</strong> {streakData.timeUntilBreak}{" "}
+              periods
             </div>
             <div>
-              <strong>Last Activity:</strong>{' '}
+              <strong>Last Activity:</strong>{" "}
               {streakData.lastActivity
                 ? new Date(streakData.lastActivity).toLocaleDateString()
-                : 'Never'}
+                : "Never"}
             </div>
           </div>
         </div>
