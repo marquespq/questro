@@ -11,6 +11,10 @@ export default defineConfig({
     'levels/index': 'src/levels/index.ts',
     'streaks/index': 'src/streaks/index.ts',
     'notifications/index': 'src/notifications/index.ts',
+    'combo/index': 'src/combo/index.ts',
+    'daily-challenge/index': 'src/daily-challenge/index.ts',
+    'achievement-toast/index': 'src/achievement-toast/index.ts',
+    'progress-rings/index': 'src/progress-rings/index.ts',
   },
 
   // Output formats

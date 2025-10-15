@@ -11,7 +11,7 @@ export class NotificationsService {
     soundUrl?: string;
   };
   private listeners: Set<() => void> = new Set();
-  private timeouts: Map<string, NodeJS.Timeout> = new Map();
+  private timeouts: Map<string, ReturnType<typeof setTimeout>> = new Map();
 
   constructor(config: NotificationConfig = {}, initialState?: NotificationsState) {
     this.config = {

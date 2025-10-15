@@ -1,10 +1,9 @@
 {
   "name": "questro",
-  "version": "0.4.0",
-  "description": "A lightweight (<200KB), modular gamification library for React and React Native. Add points, badges, quests, leaderboards, levels/XP, streaks, and notifications to your apps with zero dependencies. Perfect for fitness trackers, learning platforms, and e-commerce loyalty programs.",
+  "version": "0.5.0",
+  "description": "A lightweight, modular gamification library for React with unique visual components. Features combo meters, daily challenges, achievement toasts, and progress rings. Add points, badges, quests, leaderboards, levels/XP, streaks, and notifications with zero dependencies.",
   "keywords": [
     "react",
-    "react-native",
     "gamification",
     "badges",
     "points",
@@ -14,6 +13,10 @@
     "typescript",
     "react-component",
     "react-hooks",
+    "combo-meter",
+    "daily-challenge",
+    "progress-rings",
+    "achievement-toast",
     "game",
     "gaming",
     "rewards",
@@ -36,7 +39,8 @@
     "fitness-app",
     "learning-app",
     "elearning",
-    "edtech"
+    "edtech",
+    "visual-components"
   ],
   "author": {
     "name": "Gabriel Marques",
@@ -94,6 +98,26 @@
       "types": "./dist/notifications/index.d.ts",
       "import": "./dist/notifications/index.mjs",
       "require": "./dist/notifications/index.js"
+    },
+    "./combo": {
+      "types": "./dist/combo/index.d.ts",
+      "import": "./dist/combo/index.mjs",
+      "require": "./dist/combo/index.js"
+    },
+    "./daily-challenge": {
+      "types": "./dist/daily-challenge/index.d.ts",
+      "import": "./dist/daily-challenge/index.mjs",
+      "require": "./dist/daily-challenge/index.js"
+    },
+    "./achievement-toast": {
+      "types": "./dist/achievement-toast/index.d.ts",
+      "import": "./dist/achievement-toast/index.mjs",
+      "require": "./dist/achievement-toast/index.js"
+    },
+    "./progress-rings": {
+      "types": "./dist/progress-rings/index.d.ts",
+      "import": "./dist/progress-rings/index.mjs",
+      "require": "./dist/progress-rings/index.js"
     }
   },
   "files": [
